@@ -154,9 +154,41 @@ AI-Three     压上          0.41 15       13       6
 
 ---
 
-## 仓库结构
+---
 
+## 发布到 GitHub
+
+本目录**已经是一个初始化好的 git 仓库**（含首个提交 `zzqAI 1.0.0`）：
+
+```bash
+cd <本目录>
+
+# 1) 新建一个空仓库（GitHub 网页端，不要勾选 README/License，避免冲突）
+#    然后：
+git remote add origin git@github.com:<你的用户名>/zzqAI.git
+git branch -M main
+git push -u origin main
 ```
+
+推送前建议确认：
+
+```bash
+git status          # 应为 clean
+git log --oneline   # 应看到 zzqAI 1.0.0
+du -sh .git         # 约 7 MB 以内
+```
+
+**关于大文件**：`release/brainworks.pk3`（3.4 MB）、`release/*.qvm`、
+`upstream/*.pk3` 都是二进制，GitHub 单文件 100 MB 以内都没问题，不需要 LFS。
+
+> ⚠️ **授权**：本仓库是 GPL-2.0 衍生作品，**必须**保持 GPL-2.0 并保留
+> `NOTICE.md` 里的上游归属。不要把它改成闭源或更严格的许可证。
+> 另外**不要**把 War 模型 / 音效（第三方美术素材）提交进来 ——
+> 本仓库刻意只含角色**定义文件**，素材由使用者自备。
+
+---
+
+## 仓库结构```
 code/game/          完整的 brainworks 游戏源码（含 zzqAI 全部改动，可直接编译）
 bin/                lcc / q3asm 工具链（Windows 版，让仓库自包含）
 ui/                 game 代码 include 需要的菜单定义
