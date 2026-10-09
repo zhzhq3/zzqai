@@ -94,6 +94,23 @@ vmCvar_t bot_duel_move;					// Enable combat movement: circle strafe + retreat
 vmCvar_t bot_duel_debug;				// Print duel stance changes in real time
 vmCvar_t bot_duel_report;				// Set to 1 to print a one-shot duel stance report
 
+// zzqAI M5: 连续自适应难度
+vmCvar_t bot_adaptive;					// Enable continuous adaptive difficulty
+vmCvar_t bot_adaptive_rate;				// Maximum skill movement per evaluation
+vmCvar_t bot_adaptive_range;			// Absolute limit of the skill offset
+vmCvar_t bot_adaptive_min;				// Lower bound of the effective skill
+vmCvar_t bot_adaptive_max;				// Upper bound of the effective skill
+vmCvar_t bot_adaptive_interval;			// Seconds between difficulty evaluations
+vmCvar_t bot_adaptive_debug;			// Print difficulty adjustments in real time
+vmCvar_t bot_adaptive_report;			// Set to 1 to print a one-shot adaptive report
+
+// zzqAI M6: 团队情报共享 + 角色化响应
+vmCvar_t bot_share;						// Enable team intelligence sharing
+vmCvar_t bot_share_lifetime;			// Seconds an intel report stays usable
+vmCvar_t bot_share_range;				// Maximum distance to react to shared intel
+vmCvar_t bot_share_debug;				// Print received intel in real time
+vmCvar_t bot_share_report;				// Set to 1 to print a one-shot intel report
+
 
 // Variables modifying awareness
 vmCvar_t bot_aware_duration;			// How many seconds the most aware bot remains aware of things
@@ -250,6 +267,23 @@ void LevelSetupVariables(void)
 	trap_Cvar_Register(&bot_duel_debug,		"bot_duel_debug",		"0",		CVAR_CHEAT);
 	trap_Cvar_Register(&bot_duel_report,	"bot_duel_report",		"0",		CVAR_CHEAT);
 
+	// zzqAI M5: 连续自适应难度（按每个 bot 的相对表现浮动 skill）
+	trap_Cvar_Register(&bot_adaptive,			"bot_adaptive",				"1",	CVAR_CHEAT);
+	trap_Cvar_Register(&bot_adaptive_rate,		"bot_adaptive_rate",		"0.30",	CVAR_CHEAT);
+	trap_Cvar_Register(&bot_adaptive_range,		"bot_adaptive_range",		"1.5",	CVAR_CHEAT);
+	trap_Cvar_Register(&bot_adaptive_min,		"bot_adaptive_min",			"1.0",	CVAR_CHEAT);
+	trap_Cvar_Register(&bot_adaptive_max,		"bot_adaptive_max",			"5.0",	CVAR_CHEAT);
+	trap_Cvar_Register(&bot_adaptive_interval,	"bot_adaptive_interval",	"6.0",	CVAR_CHEAT);
+	trap_Cvar_Register(&bot_adaptive_debug,		"bot_adaptive_debug",		"0",	CVAR_CHEAT);
+	trap_Cvar_Register(&bot_adaptive_report,	"bot_adaptive_report",		"0",	CVAR_CHEAT);
+
+	// zzqAI M6: 团队情报共享 + 角色化响应
+	trap_Cvar_Register(&bot_share,				"bot_share",				"1",	CVAR_CHEAT);
+	trap_Cvar_Register(&bot_share_lifetime,		"bot_share_lifetime",		"8.0",	CVAR_CHEAT);
+	trap_Cvar_Register(&bot_share_range,		"bot_share_range",			"2500",	CVAR_CHEAT);
+	trap_Cvar_Register(&bot_share_debug,		"bot_share_debug",			"0",	CVAR_CHEAT);
+	trap_Cvar_Register(&bot_share_report,		"bot_share_report",			"0",	CVAR_CHEAT);
+
 	trap_Cvar_Register(&bot_aware_duration,			"bot_aware_duration",		"5.0",		CVAR_CHEAT);
 	trap_Cvar_Register(&bot_aware_skill_factor,		"bot_aware_skill_factor",	"0.5",		CVAR_CHEAT);
 	trap_Cvar_Register(&bot_aware_refresh_factor,	"bot_aware_refresh_factor",	"2.0",		CVAR_CHEAT);
@@ -341,6 +375,23 @@ void LevelUpdateVariables(void)
 	trap_Cvar_Update(&bot_duel_move);
 	trap_Cvar_Update(&bot_duel_debug);
 	trap_Cvar_Update(&bot_duel_report);
+
+	// zzqAI M5
+	trap_Cvar_Update(&bot_adaptive);
+	trap_Cvar_Update(&bot_adaptive_rate);
+	trap_Cvar_Update(&bot_adaptive_range);
+	trap_Cvar_Update(&bot_adaptive_min);
+	trap_Cvar_Update(&bot_adaptive_max);
+	trap_Cvar_Update(&bot_adaptive_interval);
+	trap_Cvar_Update(&bot_adaptive_debug);
+	trap_Cvar_Update(&bot_adaptive_report);
+
+	// zzqAI M6
+	trap_Cvar_Update(&bot_share);
+	trap_Cvar_Update(&bot_share_lifetime);
+	trap_Cvar_Update(&bot_share_range);
+	trap_Cvar_Update(&bot_share_debug);
+	trap_Cvar_Update(&bot_share_report);
 
 	trap_Cvar_Update(&bot_aware_duration);
 	trap_Cvar_Update(&bot_aware_skill_factor);

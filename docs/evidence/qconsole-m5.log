@@ -1,0 +1,381 @@
+logfile opened on Fri Oct 09 20:47:13 2026
+execing default.cfg
+execing q3config.cfg
+com_zoneMegs will be changed upon restarting.
+couldn't exec autoexec.cfg
+fs_game is write protected.
+Hunk_Clear: reset the hunk ok
+...detecting CPU, found Intel(R) Core(TM) i7-6600U CPU @ 2.60GHz
+----- Client Initialization -----
+----- Client Initialization Complete -----
+----- Initializing Renderer ----
+-------------------------------
+----- R_Init -----
+Initializing Vulkan subsystem
+...initializing QVK
+...loading 'C:\Windows\SYSTEM32\vulkan-1.dll' : success
+...current monitor: 1920x1080@0,0 \\.\DISPLAY1
+...setting mode 3: 640 480 W
+...created window@3,22 (646x515)
+.......................
+Available physical devices:
+ 0: Integrated Intel(R) HD Graphics 520, 0x1916
+.......................
+...selected physical device: 0
+...device memory size: 8150MB
+...presentation modes: IMMEDIATE FIFO
+...selected presentation mode: IMMEDIATE, image count: 3
+
+VK_VENDOR: Intel Corporation
+VK_RENDERER: Integrated Intel(R) HD Graphics 520, 0x1916
+VK_VERSION: API: 1.3.205, Driver: 101.1660
+
+VK_MAX_TEXTURE_SIZE: 2048
+VK_MAX_TEXTURE_UNITS: 8
+
+PIXELFORMAT: color(32-bits) Z(24-bit) stencil(0-bits)
+ presentation: VK_FORMAT_B8G8R8A8_UNORM
+ capture: VK_FORMAT_R8G8B8A8_UNORM
+ depth: VK_FORMAT_X8_D24_UNORM_PACK32
+MODE: 3, 640 x 480 windowed hz:60
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 3
+HACK: using vertex lightmap approximation
+Initializing Shaders
+----- finished R_Init -----
+------ Initializing Sound ------
+----- Sound Info -----
+    2 channels
+ 8192 samples
+   32 samplebits (float)
+    1 submission_chunk
+11025 speed
+00000000017958C0 dma buffer
+Using WASAPI subsystem
+No background file.
+----------------------
+Sound initialization successful.
+--------------------------------
+Sound memory manager started
+Loading vm file vm/ui.qvm...
+Loading 594 external jump table targets
+Loading jts file vm/ui.jts...
+VM file ui compiled to 216216 bytes of code
+ui loaded in 2100608 bytes on the hunk
+180 arenas parsed
+103 bots parsed
+--- Common Initialization Complete ---
+Hostname: WIN-20220613L4W
+IP6: fe80::1fe:255d:9e64:827a%26
+IP: 172.16.23.168
+Opening IP6 socket: [::]:27960
+Opening IP socket: 0.0.0.0:27960
+Working directory: D:\Quake 3 Arena-vulkan
+------ Server Initialization ------
+Server: q3dm4
+RE_Shutdown( 0 )
+Hunk_Clear: reset the hunk ok
+...loaded in 1 milliseconds
+----------------------
+13921 files in 23 pk3 files
+Loading vm file vm/qagame.qvm...
+VM file qagame compiled to 599160 bytes of code
+qagame loaded in 4195328 bytes on the hunk
+------- Game Initialization -------
+gamename: brainworks
+gamedate: Oct 09 2026
+info_thirdplace doesn't have a spawn function
+info_firstplace doesn't have a spawn function
+info_secondplace doesn't have a spawn function
+0 teams with 0 entities
+13 items registered
+-----------------------------------
+------- BotLib Initialization -------
+loaded weapons.c
+loaded items.c
+loaded syn.c
+loaded rnd.c
+loaded match.c
+loaded rchat.c
+------------ Map Loading ------------
+trying to load maps/q3dm4.aas
+loaded maps/q3dm4.aas
+found 20 level items
+-------------------------------------
+AAS initialized.
+103 bots parsed
+180 arenas parsed
+Detected and set up 0 obstacles and 1 activators: Path activators will not be used
+-----------------------------------
+execing m5test.cfg
+loaded skill 1 from bots/default_c.c
+loaded skill 1 from bots/zzqbot_c.c
+loaded skill 4 from bots/default_c.c
+loaded skill 4 from bots/zzqbot_c.c
+loaded zzqbot from bots/zzqbot_t.c
+Successfully loaded Brainworks Bot
+loaded cached skill 2.000000 from bots/zzqbot_c.c
+Successfully loaded Brainworks Bot
+loaded cached skill 4.000000 from bots/default_c.c
+loaded cached skill 4.000000 from bots/zzqbot_c.c
+Successfully loaded Brainworks Bot
+loaded cached skill 4.000000 from bots/default_c.c
+loaded cached skill 4.000000 from bots/zzqbot_c.c
+Successfully loaded Brainworks Bot
+RE_Shutdown( 0 )
+----- R_Init -----
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 3
+HACK: using vertex lightmap approximation
+Initializing Shaders
+----- finished R_Init -----
+Loading vm file vm/ui.qvm...
+Loading 594 external jump table targets
+Loading jts file vm/ui.jts...
+VM file ui compiled to 216216 bytes of code
+ui loaded in 2100608 bytes on the hunk
+180 arenas parsed
+103 bots parsed
+Loading vm file vm/cgame.qvm...
+VM file cgame compiled to 339496 bytes of code
+cgame loaded in 4195328 bytes on the hunk
+Font 'gfx/2d/bigchars.cfg' loaded with 250 chars and 3 images
+Font 'gfx/2d/numbers.cfg' loaded with 11 chars and 2 images
+stitched 0 LoD cracks
+...loaded 1933 faces, 375 meshes, 63 trisurfs, 115 flares
+...found 2281 VBO surfaces (15064 vertexes, 32562 indexes)
+CL_InitCGame:  2.67 seconds
+Com_TouchMemory: 0 msec
+Detected 20 items grouped into 15 static clusters and 0 mobile clusters.
+Divided the level into 15 regions.
+Zhzhq^7 entered the game
+^1zzqBOT^7-^4Low2^7 was machinegunned by zzqBOT-High2^7
+zzqAI M5: zzqBOT-Low1 得分 0 / 同场均分 0.2 -> 偏移 0.30，有效 skill 2.29
+zzqAI M5: zzqBOT-Low2 得分 0 / 同场均分 0.2 -> 偏移 0.30，有效 skill 2.29
+zzqAI M5: zzqBOT-High1 得分 0 / 同场均分 0.2 -> 偏移 0.30，有效 skill 4.30
+zzqAI M5: zzqBOT-High2 得分 1 / 同场均分 0.0 -> 偏移 -0.30，有效 skill 3.70
+^1zzqBOT^7-^4Low1^7 was gunned down by zzqBOT-High1^7
+zzqAI M5: zzqBOT-Low1 得分 0 / 同场均分 0.5 -> 偏移 0.50，有效 skill 2.50
+zzqAI M5: zzqBOT-Low2 得分 0 / 同场均分 0.5 -> 偏移 0.50，有效 skill 2.50
+zzqAI M5: zzqBOT-High1 得分 1 / 同场均分 0.2 -> 偏移 0.00，有效 skill 4.00
+zzqAI M5: zzqBOT-High2 得分 1 / 同场均分 0.2 -> 偏移 -0.50，有效 skill 3.50
+^1zzqBOT^7-^4High2^7 was gunned down by zzqBOT-High1^7
+zzqAI M5: zzqBOT-Low1 得分 0 / 同场均分 0.7 -> 偏移 0.64，有效 skill 2.64
+zzqAI M5: zzqBOT-Low2 得分 0 / 同场均分 0.7 -> 偏移 0.64，有效 skill 2.64
+zzqAI M5: zzqBOT-High1 得分 2 / 同场均分 0.2 -> 偏移 -0.30，有效 skill 3.70
+zzqAI M5: zzqBOT-High2 得分 1 / 同场均分 0.5 -> 偏移 -0.30，有效 skill 3.70
+^1zzqBOT^7-^4Low2^7 was gunned down by zzqBOT-High1^7
+zzqAI M5: zzqBOT-Low1 得分 0 / 同场均分 1.0 -> 偏移 0.75，有效 skill 2.75
+zzqAI M5: zzqBOT-Low2 得分 0 / 同场均分 1.0 -> 偏移 0.75，有效 skill 2.75
+zzqAI M5: zzqBOT-High1 得分 3 / 同场均分 0.2 -> 偏移 -0.60，有效 skill 3.40
+zzqAI M5: zzqBOT-High2 得分 1 / 同场均分 0.7 -> 偏移 -0.13，有效 skill 3.86
+^1zzqBOT^7-^4Low1^7 was machinegunned by zzqBOT-High2^7
+^1zzqBOT^7-^4High1^7 was machinegunned by zzqBOT-High2^7
+zzqAI M5: zzqBOT-Low1 得分 0 / 同场均分 1.5 -> 偏移 0.90，有效 skill 2.90
+zzqAI M5: zzqBOT-Low2 得分 0 / 同场均分 1.5 -> 偏移 0.90，有效 skill 2.90
+zzqAI M5: zzqBOT-High1 得分 3 / 同场均分 0.7 -> 偏移 -0.71，有效 skill 3.28
+zzqAI M5: zzqBOT-High2 得分 3 / 同场均分 0.7 -> 偏移 -0.43，有效 skill 3.56
+Zhzhq^7 was machinegunned by zzqBOT-High2^7
+zzqAI M5: zzqBOT-Low1 得分 0 / 同场均分 1.7 -> 偏移 0.95，有效 skill 2.95
+zzqAI M5: zzqBOT-Low2 得分 0 / 同场均分 1.7 -> 偏移 0.95，有效 skill 2.95
+zzqAI M5: zzqBOT-High1 得分 3 / 同场均分 1.0 -> 偏移 -0.60，有效 skill 3.40
+zzqAI M5: zzqBOT-High2 得分 4 / 同场均分 0.7 -> 偏移 -0.73，有效 skill 3.26
+^1zzqBOT^7-^4Low1^7 was machinegunned by zzqBOT-High1^7
+zzqAI M5: zzqBOT-Low1 得分 0 / 同场均分 2.0 -> 偏移 1.00，有效 skill 3.00
+zzqAI M5: zzqBOT-Low2 得分 0 / 同场均分 2.0 -> 偏移 1.00，有效 skill 3.00
+zzqAI M5: zzqBOT-High1 得分 4 / 同场均分 1.0 -> 偏移 -0.75，有效 skill 3.25
+zzqAI M5: zzqBOT-High2 得分 4 / 同场均分 1.0 -> 偏移 -0.75，有效 skill 3.25
+^1zzqBOT^7-^4Low2^7 was machinegunned by zzqBOT-Low1^7
+zzqAI M5: zzqBOT-Low1 得分 1 / 同场均分 2.0 -> 偏移 0.70，有效 skill 2.70
+zzqAI M5: zzqBOT-Low2 得分 0 / 同场均分 2.2 -> 偏移 1.03，有效 skill 3.03
+zzqAI M5: zzqBOT-High1 得分 4 / 同场均分 1.2 -> 偏移 -0.65，有效 skill 3.34
+zzqAI M5: zzqBOT-High2 得分 4 / 同场均分 1.2 -> 偏移 -0.65，有效 skill 3.34
+^1zzqBOT^7-^4High2^7 was machinegunned by zzqBOT-High1^7
+^1zzqBOT^7-^4High2^7: ^2Rocket jump miscalculation.
+^1zzqBOT^7-^4Low1^7: ^2You must be new here. You seem confused...
+^1zzqBOT^7-^4Low1^7 was machinegunned by zzqBOT-High1^7
+zzqAI M5: zzqBOT-Low1 得分 1 / 同场均分 2.5 -> 偏移 0.50，有效 skill 2.50
+zzqAI M5: zzqBOT-Low2 得分 0 / 同场均分 2.7 -> 偏移 1.10，有效 skill 3.09
+zzqAI M5: zzqBOT-High1 得分 6 / 同场均分 1.2 -> 偏移 -0.86，有效 skill 3.13
+zzqAI M5: zzqBOT-High2 得分 4 / 同场均分 1.7 -> 偏移 -0.50，有效 skill 3.50
+zzqAI M5: zzqBOT-Low1 得分 1 / 同场均分 2.5 -> 偏移 0.50，有效 skill 2.50
+zzqAI M5: zzqBOT-Low2 得分 0 / 同场均分 2.7 -> 偏移 1.10，有效 skill 3.09
+zzqAI M5: zzqBOT-High1 得分 6 / 同场均分 1.2 -> 偏移 -0.86，有效 skill 3.13
+zzqAI M5: zzqBOT-High2 得分 4 / 同场均分 1.7 -> 偏移 -0.50，有效 skill 3.50
+================ M5 REPORT A ================
+===== zzqAI M5 难度伺服报告 =====
+机器人        原始   偏移   有效   得分   同场均分
+zzqBOT-Low1             2.00        0.50        2.50        1        2.5
+zzqBOT-Low2             2.00        1.10        3.09        0        2.7
+zzqBOT-High1            4.00       -0.86        3.13        6        1.2
+zzqBOT-High2            4.00       -0.50        3.50        4        1.7
+评估轮数 11，开关 1，步长 0.30，幅度 1.50，区间 1.0 ~ 5.0
+=================================
+^1zzqBOT^7-^4High1^7 was gunned down by zzqBOT-High2^7
+zzqAI M5: zzqBOT-Low1 得分 1 / 同场均分 2.7 -> 偏移 0.55，有效 skill 2.55
+zzqAI M5: zzqBOT-Low2 得分 0 / 同场均分 3.0 -> 偏移 1.12，有效 skill 3.12
+zzqAI M5: zzqBOT-High1 得分 6 / 同场均分 1.5 -> 偏移 -0.79，有效 skill 3.20
+zzqAI M5: zzqBOT-High2 得分 5 / 同场均分 1.7 -> 偏移 -0.62，有效 skill 3.37
+zzqAI M5: zzqBOT-Low1 得分 1 / 同场均分 2.7 -> 偏移 0.55，有效 skill 2.55
+zzqAI M5: zzqBOT-Low2 得分 0 / 同场均分 3.0 -> 偏移 1.12，有效 skill 3.12
+zzqAI M5: zzqBOT-High1 得分 6 / 同场均分 1.5 -> 偏移 -0.79，有效 skill 3.20
+zzqAI M5: zzqBOT-High2 得分 5 / 同场均分 1.7 -> 偏移 -0.62，有效 skill 3.37
+^1zzqBOT^7-^4Low1^7 was machinegunned by zzqBOT-Low2^7
+zzqAI M5: zzqBOT-Low1 得分 1 / 同场均分 3.0 -> 偏移 0.60，有效 skill 2.59
+zzqAI M5: zzqBOT-Low2 得分 1 / 同场均分 3.0 -> 偏移 0.82，有效 skill 2.82
+zzqAI M5: zzqBOT-High1 得分 6 / 同场均分 1.7 -> 偏移 -0.72，有效 skill 3.27
+zzqAI M5: zzqBOT-High2 得分 5 / 同场均分 2.0 -> 偏移 -0.56，有效 skill 3.43
+zzqAI M5: zzqBOT-Low1 得分 1 / 同场均分 3.0 -> 偏移 0.60，有效 skill 2.59
+zzqAI M5: zzqBOT-Low2 得分 1 / 同场均分 3.0 -> 偏移 0.60，有效 skill 2.59
+zzqAI M5: zzqBOT-High1 得分 6 / 同场均分 1.7 -> 偏移 -0.72，有效 skill 3.27
+zzqAI M5: zzqBOT-High2 得分 5 / 同场均分 2.0 -> 偏移 -0.56，有效 skill 3.43
+^1zzqBOT^7-^4High1^7 was machinegunned by zzqBOT-High2^7
+zzqAI M5: zzqBOT-Low1 得分 1 / 同场均分 3.2 -> 偏移 0.64，有效 skill 2.64
+zzqAI M5: zzqBOT-Low2 得分 1 / 同场均分 3.2 -> 偏移 0.64，有效 skill 2.64
+zzqAI M5: zzqBOT-High1 得分 6 / 同场均分 2.0 -> 偏移 -0.66，有效 skill 3.33
+zzqAI M5: zzqBOT-High2 得分 6 / 同场均分 2.0 -> 偏移 -0.66，有效 skill 3.33
+^1zzqBOT^7-^4Low2^7 was gunned down by zzqBOT-High2^7
+^1zzqBOT^7-^4Low2^7: ^2That is on me.
+zzqAI M5: zzqBOT-Low1 得分 1 / 同场均分 3.5 -> 偏移 0.68，有效 skill 2.68
+zzqAI M5: zzqBOT-Low2 得分 1 / 同场均分 3.5 -> 偏移 0.68，有效 skill 2.68
+zzqAI M5: zzqBOT-High1 得分 6 / 同场均分 2.2 -> 偏移 -0.60，有效 skill 3.39
+zzqAI M5: zzqBOT-High2 得分 7 / 同场均分 2.0 -> 偏移 -0.75，有效 skill 3.25
+^1zzqBOT^7-^4High2^7 was machinegunned by zzqBOT-High1^7
+^1zzqBOT^7-^4High1^7 was gunned down by zzqBOT-Low1^7
+^1zzqBOT^7-^4Low2^7 was gunned down by zzqBOT-Low1^7
+zzqAI M5: zzqBOT-Low1 得分 3 / 同场均分 3.7 -> 偏移 0.38，有效 skill 2.38
+zzqAI M5: zzqBOT-Low2 得分 1 / 同场均分 4.2 -> 偏移 0.77，有效 skill 2.77
+zzqAI M5: zzqBOT-High1 得分 7 / 同场均分 2.7 -> 偏移 -0.59，有效 skill 3.40
+zzqAI M5: zzqBOT-High2 得分 7 / 同场均分 2.7 -> 偏移 -0.59，有效 skill 3.40
+^1zzqBOT^7-^4High1^7 was gunned down by zzqBOT-Low1^7
+zzqAI M5: zzqBOT-Low1 得分 4 / 同场均分 3.7 -> 偏移 0.08，有效 skill 2.08
+zzqAI M5: zzqBOT-Low2 得分 1 / 同场均分 4.5 -> 偏移 0.80，有效 skill 2.80
+zzqAI M5: zzqBOT-High1 得分 7 / 同场均分 3.0 -> 偏移 -0.54，有效 skill 3.45
+zzqAI M5: zzqBOT-High2 得分 7 / 同场均分 3.0 -> 偏移 -0.54，有效 skill 3.45
+^1zzqBOT^7-^4High2^7 was gunned down by zzqBOT-Low1^7
+zzqAI M5: zzqBOT-Low1 得分 5 / 同场均分 3.7 -> 偏移 -0.19，有效 skill 1.80
+zzqAI M5: zzqBOT-Low2 得分 1 / 同场均分 4.7 -> 偏移 0.83，有效 skill 2.83
+zzqAI M5: zzqBOT-High1 得分 7 / 同场均分 3.2 -> 偏移 -0.50，有效 skill 3.50
+zzqAI M5: zzqBOT-High2 得分 7 / 同场均分 3.2 -> 偏移 -0.50，有效 skill 3.50
+^1zzqBOT^7-^4Low2^7 was gunned down by zzqBOT-Low1^7
+^1zzqBOT^7-^4Low1^7 was machinegunned by zzqBOT-High1^7
+zzqAI M5: zzqBOT-Low1 得分 6 / 同场均分 4.0 -> 偏移 -0.27，有效 skill 1.72
+zzqAI M5: zzqBOT-Low2 得分 1 / 同场均分 5.2 -> 偏移 0.87，有效 skill 2.87
+zzqAI M5: zzqBOT-High1 得分 8 / 同场均分 3.5 -> 偏移 -0.54，有效 skill 3.46
+zzqAI M5: zzqBOT-High2 得分 7 / 同场均分 3.7 -> 偏移 -0.41，有效 skill 3.58
+Unknown client game command: vchat
+zzqAI M5: zzqBOT-Low1 得分 6 / 同场均分 4.0 -> 偏移 -0.27，有效 skill 1.72
+zzqAI M5: zzqBOT-Low2 得分 1 / 同场均分 5.2 -> 偏移 0.87，有效 skill 2.87
+zzqAI M5: zzqBOT-High1 得分 8 / 同场均分 3.5 -> 偏移 -0.54，有效 skill 3.46
+zzqAI M5: zzqBOT-High2 得分 7 / 同场均分 3.7 -> 偏移 -0.41，有效 skill 3.58
+^1zzqBOT^7-^4Low2^7 was machinegunned by zzqBOT-Low1^7
+zzqAI M5: zzqBOT-Low1 得分 7 / 同场均分 4.0 -> 偏移 -0.37，有效 skill 1.62
+zzqAI M5: zzqBOT-Low2 得分 1 / 同场均分 5.5 -> 偏移 0.90，有效 skill 2.90
+zzqAI M5: zzqBOT-High1 得分 8 / 同场均分 3.7 -> 偏移 -0.50，有效 skill 3.50
+zzqAI M5: zzqBOT-High2 得分 7 / 同场均分 4.0 -> 偏移 -0.37，有效 skill 3.62
+^1zzqBOT^7-^4High1^7 was machinegunned by zzqBOT-High2^7
+^1zzqBOT^7-^4High1^7: ^2that's on me.
+^1zzqBOT^7-^4High2^7 was machinegunned by zzqBOT-Low2^7
+^1zzqBOT^7-^4High2^7: ^2Rocket jump miscalculation.
+================ M5 REPORT B ================
+===== zzqAI M5 难度伺服报告 =====
+机器人        原始   偏移   有效   得分   同场均分
+zzqBOT-Low1             2.00       -0.37        1.62        7        4.0
+zzqBOT-Low2             2.00        0.90        2.90        1        5.5
+zzqBOT-High1            4.00       -0.50        3.50        8        3.7
+zzqBOT-High2            4.00       -0.37        3.62        7        4.0
+评估轮数 23，开关 1，步长 0.30，幅度 1.50，区间 1.0 ~ 5.0
+=================================
+zzqAI M5: zzqBOT-Low1 得分 7 / 同场均分 4.5 -> 偏移 -0.30，有效 skill 1.70
+zzqAI M5: zzqBOT-Low2 得分 2 / 同场均分 5.7 -> 偏移 0.64，有效 skill 2.64
+zzqAI M5: zzqBOT-High1 得分 8 / 同场均分 4.2 -> 偏移 -0.42，有效 skill 3.57
+zzqAI M5: zzqBOT-High2 得分 8 / 同场均分 4.2 -> 偏移 -0.42，有效 skill 3.57
+^1zzqBOT^7-^4Low1^7 was machinegunned by zzqBOT-High1^7
+^1zzqBOT^7-^4Low1^7: ^2That is on me.
+zzqAI M5: zzqBOT-Low1 得分 7 / 同场均分 4.7 -> 偏移 -0.26，有效 skill 1.73
+zzqAI M5: zzqBOT-Low2 得分 2 / 同场均分 6.0 -> 偏移 0.66，有效 skill 2.66
+zzqAI M5: zzqBOT-High1 得分 9 / 同场均分 4.2 -> 偏移 -0.50，有效 skill 3.50
+zzqAI M5: zzqBOT-High2 得分 8 / 同场均分 4.5 -> 偏移 -0.38，有效 skill 3.61
+^1zzqBOT^7-^4Low2^7 was machinegunned by zzqBOT-High2^7
+zzqAI M5: zzqBOT-Low1 得分 7 / 同场均分 5.0 -> 偏移 -0.23，有效 skill 1.76
+zzqAI M5: zzqBOT-Low2 得分 2 / 同场均分 6.2 -> 偏移 0.68，有效 skill 2.68
+zzqAI M5: zzqBOT-High1 得分 9 / 同场均分 4.5 -> 偏移 -0.46，有效 skill 3.53
+zzqAI M5: zzqBOT-High2 得分 9 / 同场均分 4.5 -> 偏移 -0.46，有效 skill 3.53
+^1zzqBOT^7-^4High2^7 was gunned down by zzqBOT-High1^7
+zzqAI M5: zzqBOT-Low1 得分 7 / 同场均分 5.2 -> 偏移 -0.19，有效 skill 1.80
+zzqAI M5: zzqBOT-Low2 得分 2 / 同场均分 6.5 -> 偏移 0.71，有效 skill 2.71
+zzqAI M5: zzqBOT-High1 得分 10 / 同场均分 4.5 -> 偏移 -0.53，有效 skill 3.46
+zzqAI M5: zzqBOT-High2 得分 9 / 同场均分 4.7 -> 偏移 -0.43，有效 skill 3.56
+^1zzqBOT^7-^4Low2^7 was gunned down by zzqBOT-High1^7
+^1zzqBOT^7-^4Low2^7: ^2That is on me.
+zzqAI M5: zzqBOT-Low1 得分 7 / 同场均分 5.5 -> 偏移 -0.16，有效 skill 1.83
+zzqAI M5: zzqBOT-Low2 得分 2 / 同场均分 6.7 -> 偏移 0.73，有效 skill 2.73
+zzqAI M5: zzqBOT-High1 得分 11 / 同场均分 4.5 -> 偏移 -0.59，有效 skill 3.40
+zzqAI M5: zzqBOT-High2 得分 9 / 同场均分 5.0 -> 偏移 -0.40，有效 skill 3.59
+^1zzqBOT^7-^4High1^7 was gunned down by zzqBOT-Low1^7
+^1zzqBOT^7-^4Low1^7 was machinegunned by zzqBOT-High2^7
+zzqAI M5: zzqBOT-Low1 得分 8 / 同场均分 5.7 -> 偏移 -0.22，有效 skill 1.77
+zzqAI M5: zzqBOT-Low2 得分 2 / 同场均分 7.2 -> 偏移 0.76，有效 skill 2.76
+zzqAI M5: zzqBOT-High1 得分 11 / 同场均分 5.0 -> 偏移 -0.52，有效 skill 3.47
+zzqAI M5: zzqBOT-High2 得分 10 / 同场均分 5.2 -> 偏移 -0.43，有效 skill 3.56
+zzqAI M5: zzqBOT-Low1 得分 8 / 同场均分 5.7 -> 偏移 -0.22，有效 skill 1.77
+zzqAI M5: zzqBOT-Low2 得分 2 / 同场均分 7.2 -> 偏移 0.76，有效 skill 2.76
+zzqAI M5: zzqBOT-High1 得分 11 / 同场均分 5.0 -> 偏移 -0.52，有效 skill 3.47
+zzqAI M5: zzqBOT-High2 得分 10 / 同场均分 5.2 -> 偏移 -0.43，有效 skill 3.56
+^1zzqBOT^7-^4High2^7 was machinegunned by zzqBOT-High1^7
+^1zzqBOT^7-^4Low2^7 was machinegunned by zzqBOT-High1^7
+zzqAI M5: zzqBOT-Low1 得分 8 / 同场均分 6.2 -> 偏移 -0.17，有效 skill 1.82
+zzqAI M5: zzqBOT-Low2 得分 2 / 同场均分 7.7 -> 偏移 0.80，有效 skill 2.80
+zzqAI M5: zzqBOT-High1 得分 13 / 同场均分 5.0 -> 偏移 -0.63，有效 skill 3.36
+zzqAI M5: zzqBOT-High2 得分 10 / 同场均分 5.7 -> 偏移 -0.38，有效 skill 3.61
+zzqAI M5: zzqBOT-Low1 得分 8 / 同场均分 6.2 -> 偏移 -0.17，有效 skill 1.82
+zzqAI M5: zzqBOT-Low2 得分 2 / 同场均分 7.7 -> 偏移 0.80，有效 skill 2.80
+zzqAI M5: zzqBOT-High1 得分 13 / 同场均分 5.0 -> 偏移 -0.63，有效 skill 3.36
+zzqAI M5: zzqBOT-High2 得分 10 / 同场均分 5.7 -> 偏移 -0.38，有效 skill 3.61
+^1zzqBOT^7-^4Low1^7 was machinegunned by zzqBOT-Low2^7
+zzqAI M5: zzqBOT-Low1 得分 8 / 同场均分 6.5 -> 偏移 -0.14，有效 skill 1.85
+zzqAI M5: zzqBOT-Low2 得分 3 / 同场均分 7.7 -> 偏移 0.60，有效 skill 2.60
+zzqAI M5: zzqBOT-High1 得分 13 / 同场均分 5.2 -> 偏移 -0.60，有效 skill 3.39
+zzqAI M5: zzqBOT-High2 得分 10 / 同场均分 6.0 -> 偏移 -0.35，有效 skill 3.64
+^1zzqBOT^7-^4Low2^7 was machinegunned by zzqBOT-High1^7
+zzqAI M5: zzqBOT-Low1 得分 8 / 同场均分 6.7 -> 偏移 -0.11，有效 skill 1.88
+zzqAI M5: zzqBOT-Low2 得分 3 / 同场均分 8.0 -> 偏移 0.62，有效 skill 2.62
+zzqAI M5: zzqBOT-High1 得分 14 / 同场均分 5.2 -> 偏移 -0.64，有效 skill 3.35
+zzqAI M5: zzqBOT-High2 得分 10 / 同场均分 6.2 -> 偏移 -0.32，有效 skill 3.67
+^1zzqBOT^7-^4High1^7 was gunned down by zzqBOT-High2^7
+^1zzqBOT^7-^4High1^7: ^2That is on me.
+zzqAI M5: zzqBOT-Low1 得分 8 / 同场均分 7.0 -> 偏移 -0.09，有效 skill 1.90
+zzqAI M5: zzqBOT-Low2 得分 3 / 同场均分 8.2 -> 偏移 0.64，有效 skill 2.64
+zzqAI M5: zzqBOT-High1 得分 14 / 同场均分 5.5 -> 偏移 -0.62，有效 skill 3.37
+zzqAI M5: zzqBOT-High2 得分 11 / 同场均分 6.2 -> 偏移 -0.39，有效 skill 3.60
+Unknown client game command: vchat
+^1zzqBOT^7-^4Low2^7 was gunned down by zzqBOT-Low1^7
+zzqAI M5: zzqBOT-Low1 得分 9 / 同场均分 7.0 -> 偏移 -0.17，有效 skill 1.82
+zzqAI M5: zzqBOT-Low2 得分 3 / 同场均分 8.5 -> 偏移 0.65，有效 skill 2.65
+zzqAI M5: zzqBOT-High1 得分 14 / 同场均分 5.7 -> 偏移 -0.59，有效 skill 3.40
+zzqAI M5: zzqBOT-High2 得分 11 / 同场均分 6.5 -> 偏移 -0.36，有效 skill 3.63
+================ M5 REPORT C ================
+===== zzqAI M5 难度伺服报告 =====
+机器人        原始   偏移   有效   得分   同场均分
+zzqBOT-Low1             2.00       -0.17        1.82        9        7.0
+zzqBOT-Low2             2.00        0.65        2.65        3        8.5
+zzqBOT-High1            4.00       -0.59        3.40       14        5.7
+zzqBOT-High2            4.00       -0.36        3.63       11        6.5
+评估轮数 36，开关 1，步长 0.30，幅度 1.50，区间 1.0 ~ 5.0
+=================================
+^1zzqBOT^7-^4Low1^7 was gunned down by zzqBOT-High2^7
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+AAS shutdown.
+---------------------------
+----- Client Shutdown (Client quit) -----
+RE_Shutdown( 3 )
+Shutting down Vulkan subsystem
+...destroying window
+...shutting down QVK
+...unloading Vulkan DLL
+-----------------------

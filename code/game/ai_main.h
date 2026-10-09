@@ -574,6 +574,8 @@ typedef enum
 	GOAL_HARVEST_ORDER,
 	// zzqAI M3: 劣势脱离时去补血甲
 	GOAL_DUEL_REGROUP,
+	// zzqAI M6: 去队友上报的情报点搜人（团队模式）
+	GOAL_SHARE_PURSUE,
 } goal_type_t;
 
 // Different values of goals.  Each goal type is associated with exactly one of

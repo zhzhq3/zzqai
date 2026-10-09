@@ -23,6 +23,7 @@
 #include "ai_order.h"
 #include "ai_path.h"
 #include "ai_self.h"
+#include "ai_share.h"
 #include "ai_team.h"
 #include "ai_visible.h"
 #include "ai_waypoint.h"
@@ -66,6 +67,7 @@ void BotSetGoalType(bot_state_t *bs, int type)
 		case GOAL_CAPTURE_WAIT:			bs->goal_value = GOAL_VALUE_LOW;		break;
 		case GOAL_ATTACK_CHOICE:		bs->goal_value = GOAL_VALUE_LOW;		break;
 		case GOAL_DUEL_REGROUP:			bs->goal_value = GOAL_VALUE_MEDIUM;		break;
+		case GOAL_SHARE_PURSUE:			bs->goal_value = GOAL_VALUE_LOW;		break;
 		case GOAL_ATTACK_ORDER:			bs->goal_value = GOAL_VALUE_MEDIUM;		break;
 		case GOAL_HELP_CHOICE:			bs->goal_value = GOAL_VALUE_LOW;		break;
 		case GOAL_HELP_ORDER:			bs->goal_value = GOAL_VALUE_MEDIUM;		break;
@@ -125,6 +127,7 @@ void BotSetGoalType(bot_state_t *bs, int type)
 		case GOAL_CAPTURE_WAIT:			action = "Waiting to Capture";	break;
 		case GOAL_ATTACK_CHOICE:		action = "Attack choice";		break;
 		case GOAL_DUEL_REGROUP:			action = "Duel regroup";		break;
+		case GOAL_SHARE_PURSUE:			action = "Intel pursue";		break;
 		case GOAL_ATTACK_ORDER:			action = "Attack order";		break;
 		case GOAL_HELP_CHOICE:			action = "Help choice";			break;
 		case GOAL_HELP_ORDER:			action = "Help order";			break;
@@ -511,6 +514,50 @@ int BotGoalDuelChoice(bot_state_t *bs, bot_goal_t *goal)
 	BotSetTeamStatus(bs, TEAMTASK_RETRIEVE);
 
 	return GOAL_DUEL_REGROUP;
+}
+
+/*
+==================
+BotGoalShareChoice
+
+zzqAI M6: 去队友上报的情报点搜人。
+
+只在"自己没看到敌人"时才用这条目标——自己看到的敌人由 BotGoalAttackChoice
+处理，而且是精确位置，没必要绕道。它排在 BotGoalItemChoice 之前：队友刚上报
+的敌人位置是确凿信息，比原版"去重要物品点碰运气"更值得跑一趟。
+
+如果队伍里没人上报过情报，或者情报都过期了，这条目标直接不成立。
+==================
+*/
+int BotGoalShareChoice(bot_state_t *bs, bot_goal_t *goal)
+{
+	vec3_t spot;
+	float age;
+
+	// 未开启情报共享就没有这条目标
+	if (!bot_share.integer)
+		return GOAL_NONE;
+
+	// 已经看到敌人了就不需要听情报
+	if (bs->goal_enemy)
+		return GOAL_NONE;
+
+	// 查一条"最新 + 最近"的队友情报
+	if (!ShareIntelFind(bs, spot, &age))
+		return GOAL_NONE;
+
+	// 把情报点变成目标位置
+	if (!GoalLocation(goal, spot))
+		return GOAL_NONE;
+
+	// 确保能规划出一条过去的路
+	if (!BotPathPlan(bs, &bs->main_path, goal, goal))
+		return GOAL_NONE;
+
+	// 对外表现为在巡逻（原版的队伍状态没有"去抓人"这一档）
+	BotSetTeamStatus(bs, TEAMTASK_PATROL);
+
+	return GOAL_SHARE_PURSUE;
 }
 
 /*
@@ -1764,6 +1811,10 @@ void BotComputeGoalCheckList(bot_state_t *bs)
 
 	// Attacking a nearby enemy is a good default option
 	BotAddGoalCheck(bs, BotGoalAttackChoice);
+
+	// zzqAI M6: 自己没看到敌人时，队友刚上报的情报点比"逛物品点"更值得去——
+	// 情报是确凿的敌人位置，而"去物品点"只是碰运气。所以排在物品检查之前。
+	BotAddGoalCheck(bs, BotGoalShareChoice);
 
 	// The bot should look for enemies near valuable items
 	BotAddGoalCheck(bs, BotGoalItemChoice);

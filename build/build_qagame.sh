@@ -40,6 +40,7 @@ q_math
 q_shared
 ai_accuracy
 ai_action
+ai_adaptive
 ai_aim
 ai_attack
 ai_aware
@@ -66,6 +67,7 @@ ai_region
 ai_resource
 ai_scan
 ai_self
+ai_share
 ai_subteam
 ai_team
 ai_use

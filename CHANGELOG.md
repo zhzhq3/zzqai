@@ -47,6 +47,39 @@
 - `BotDuelShouldCircle()` 条件：均势或优势、有瞄准敌人、站在地面上、距离 72–768。
 - cvar：`bot_duel_move`（默认 1）。
 
+### 新增 — M5 连续自适应难度（`ai_adaptive.c` / `ai_adaptive.h`）
+
+- 原版 skill 是 1~5 的整数、开局定死、全队共用。本模块给**每个机器人单独**算一个
+  skill 偏移（默认 ±1.5），按"自己得分 vs 同场其他玩家平均得分"连续调整：
+  落后则抬高、领先则压低；每 `bot_adaptive_interval` 秒评估一次，
+  每次最多移动 `bot_adaptive_rate`。
+- **零侵入**：不改任何读取 `bs->settings.skill` 的代码，而是每帧把
+  `原始 skill + 偏移` 写回该字段，于是感知半径（`ai_aware.c`）、反应阈值
+  （`ai_scan.c`）、瞄准精度（`ai_self.c`）、物品预测深度（`ai_pickup.c`）等
+  自动跟随难度变化。
+- 写回前做自愈检测：`settings.skill` 与上一帧写入值对不上（例如换了机器人）时
+  重建基准。
+- 挂载点：`ai_main.c`（`BotAdaptiveUpdate` + 每帧 `BotAdaptiveApply` + 报告触发）。
+- cvar：`bot_adaptive`（默认 1）、`bot_adaptive_rate`(0.30)、`bot_adaptive_range`(1.5)、
+  `bot_adaptive_min`(1.0)、`bot_adaptive_max`(5.0)、`bot_adaptive_interval`(6.0)、
+  `bot_adaptive_debug`(0)、`bot_adaptive_report`(0)。
+
+### 新增 — M6 团队情报共享 + 角色化响应（`ai_share.c` / `ai_share.h`）
+
+- 每队一块情报黑板（`MAX_TEAM_INTEL` 8 个槽位）：谁上报的、敌人在哪、什么时候。
+  写入端是 `ai_aware.c`（机器人真的察觉到一个敌人时）；读取端是新增目标
+  `GOAL_SHARE_PURSUE` / `BotGoalShareChoice`。
+- **红线**：`reporter == bs->client` 的情报被跳过 —— 自己报的不算数，
+  避免情报共享退化成透视。情报有 `bot_share_lifetime`（默认 8 秒）有效期。
+- 目标顺序：劣势补血甲 → 打看得见的敌人 → **（M6）去情报点** → 去物品点 → 蹲点。
+  放在"去物品点"之前是有意的：队友刚上报的位置比"碰运气"更值得跑。
+- 队内**自动角色分工**（按 `CHARACTERISTIC_AGGRESSION − 0.5 × CHARACTERISTIC_CAMPER`
+  排序）：进攻性最高 = 突破（响应半径 ×1.0）、中间 = 策应（×0.75）、
+  最低 = 守点（×0.5）。成员变化时立即重算。
+- **仅团队模式生效**（`game_style & GS_TEAM`）；FFA 下所有入口直接返回。
+- cvar：`bot_share`（默认 1）、`bot_share_lifetime`(8.0)、`bot_share_range`(2500)、
+  `bot_share_debug`(0)、`bot_share_report`(0)。
+
 ### 新增 — zzqBOT 机器人模式
 
 - 纯运行时角色数据，**不修改任何 AI 逻辑**：`botfiles/bots/zzqbot_{c,w,i,t}.c`、
@@ -67,4 +100,9 @@
 
 - `q3dm4`、3 bot、技能 4、约 2 分钟：146 行态势变化，压上/脱离/绕圈换向计数全部非零，0 报错。
 - 对照组（`bot_duel 0` + `bot_duel_move 0`）：态势 0 行、计数全 0、绕圈 0，击杀照常发生。
+- M5（`q3dm4`、4 bot、两组不同初始 skill）：强组 skill 4.00 → 3.42、弱组 2.00 → 2.67，
+  差距从 2.00 收敛到 0.75；36 轮评估，0 报错。
+- M6（`q3dm6`、TDM、红蓝各 2 bot）：40 条情报接收日志，四台机器人接收计数全非零
+  （65 / 35 / 84 / 106），角色分工正确，0 报错。
+- 对照组（`bot_adaptive 0` + `bot_share 0`）：偏移全 0、角色全"无"、情报板 0 条、0 报错。
 - 编译 `0 total errors`。

@@ -15,6 +15,7 @@
 #include "ai_client.h"
 #include "ai_entity.h"
 #include "ai_profile.h"
+#include "ai_share.h"
 
 
 /*
@@ -289,6 +290,9 @@ qboolean BotAwareTrackEntity(bot_state_t *bs, gentity_t *ent, float event_radius
 
 	// zzqAI M1: 记下这个敌人最后被察觉到的位置（看到或听到）
 	ProfileEnemySeen(ent, ent->r.currentOrigin);
+
+	// zzqAI M6: 把这个位置报给队友（仅团队模式；自己报的不算作可用的队友情报）
+	ShareIntelReport(bs, ent, ent->r.currentOrigin);
 
 	// Just refresh awareness if the bot was already aware
 	if (index >= 0)

@@ -67,6 +67,23 @@ extern vmCvar_t bot_duel_move;			// 是否启用战斗走位：绕圈横移 + �
 extern vmCvar_t bot_duel_debug;			// 是否实时打印态势变化
 extern vmCvar_t bot_duel_report;		// 置 1 打印一次全部机器人态势汇总（自动清零）
 
+// zzqAI M5: 连续自适应难度
+extern vmCvar_t bot_adaptive;			// 是否启用难度伺服
+extern vmCvar_t bot_adaptive_rate;		// 每个评估周期最多移动的 skill 量
+extern vmCvar_t bot_adaptive_range;		// skill 偏移的绝对值上限
+extern vmCvar_t bot_adaptive_min;		// 有效 skill 的下限
+extern vmCvar_t bot_adaptive_max;		// 有效 skill 的上限
+extern vmCvar_t bot_adaptive_interval;	// 评估周期（秒）
+extern vmCvar_t bot_adaptive_debug;		// 是否实时打印难度调整
+extern vmCvar_t bot_adaptive_report;	// 置 1 打印一次难度伺服汇总（自动清零）
+
+// zzqAI M6: 团队情报共享 + 角色化响应
+extern vmCvar_t bot_share;				// 是否启用团队情报共享
+extern vmCvar_t bot_share_lifetime;		// 情报有效期（秒）
+extern vmCvar_t bot_share_range;		// 情报响应距离上限
+extern vmCvar_t bot_share_debug;		// 是否实时打印收到的情报
+extern vmCvar_t bot_share_report;		// 置 1 打印一次团队情报汇总（自动清零）
+
 extern vmCvar_t bot_aware_duration;
 extern vmCvar_t bot_aware_skill_factor;
 extern vmCvar_t bot_aware_refresh_factor;

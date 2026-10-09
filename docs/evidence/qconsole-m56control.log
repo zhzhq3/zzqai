@@ -1,0 +1,219 @@
+logfile opened on Fri Oct 09 20:49:26 2026
+execing default.cfg
+execing q3config.cfg
+com_zoneMegs will be changed upon restarting.
+couldn't exec autoexec.cfg
+fs_game is write protected.
+Hunk_Clear: reset the hunk ok
+...detecting CPU, found Intel(R) Core(TM) i7-6600U CPU @ 2.60GHz
+----- Client Initialization -----
+----- Client Initialization Complete -----
+----- Initializing Renderer ----
+-------------------------------
+----- R_Init -----
+Initializing Vulkan subsystem
+...initializing QVK
+...loading 'C:\Windows\SYSTEM32\vulkan-1.dll' : success
+...current monitor: 1920x1080@0,0 \\.\DISPLAY1
+...setting mode 3: 640 480 W
+...created window@3,22 (646x515)
+.......................
+Available physical devices:
+ 0: Integrated Intel(R) HD Graphics 520, 0x1916
+.......................
+...selected physical device: 0
+...device memory size: 8150MB
+...presentation modes: IMMEDIATE FIFO
+...selected presentation mode: IMMEDIATE, image count: 3
+
+VK_VENDOR: Intel Corporation
+VK_RENDERER: Integrated Intel(R) HD Graphics 520, 0x1916
+VK_VERSION: API: 1.3.205, Driver: 101.1660
+
+VK_MAX_TEXTURE_SIZE: 2048
+VK_MAX_TEXTURE_UNITS: 8
+
+PIXELFORMAT: color(32-bits) Z(24-bit) stencil(0-bits)
+ presentation: VK_FORMAT_B8G8R8A8_UNORM
+ capture: VK_FORMAT_R8G8B8A8_UNORM
+ depth: VK_FORMAT_X8_D24_UNORM_PACK32
+MODE: 3, 640 x 480 windowed hz:60
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 3
+HACK: using vertex lightmap approximation
+Initializing Shaders
+----- finished R_Init -----
+------ Initializing Sound ------
+----- Sound Info -----
+    2 channels
+ 8192 samples
+   32 samplebits (float)
+    1 submission_chunk
+11025 speed
+00000000017958C0 dma buffer
+Using WASAPI subsystem
+No background file.
+----------------------
+Sound initialization successful.
+--------------------------------
+Sound memory manager started
+Loading vm file vm/ui.qvm...
+Loading 594 external jump table targets
+Loading jts file vm/ui.jts...
+VM file ui compiled to 216216 bytes of code
+ui loaded in 2100608 bytes on the hunk
+180 arenas parsed
+103 bots parsed
+--- Common Initialization Complete ---
+Hostname: WIN-20220613L4W
+IP6: fe80::1fe:255d:9e64:827a%26
+IP: 172.16.23.168
+Opening IP6 socket: [::]:27960
+Opening IP socket: 0.0.0.0:27960
+Working directory: D:\Quake 3 Arena-vulkan
+------ Server Initialization ------
+Server: q3dm6
+RE_Shutdown( 0 )
+Hunk_Clear: reset the hunk ok
+...loaded in 1 milliseconds
+----------------------
+13921 files in 23 pk3 files
+Loading vm file vm/qagame.qvm...
+VM file qagame compiled to 599160 bytes of code
+qagame loaded in 4195328 bytes on the hunk
+------- Game Initialization -------
+gamename: brainworks
+gamedate: Oct 09 2026
+Gametype changed, clearing session data.
+0 teams with 0 entities
+16 items registered
+-----------------------------------
+------- BotLib Initialization -------
+loaded weapons.c
+loaded items.c
+loaded syn.c
+loaded rnd.c
+loaded match.c
+loaded rchat.c
+------------ Map Loading ------------
+trying to load maps/q3dm6.aas
+loaded maps/q3dm6.aas
+found 53 level items
+-------------------------------------
+AAS initialized.
+103 bots parsed
+180 arenas parsed
+Detected and set up 0 obstacles and 0 activators: Path activators will not be used
+-----------------------------------
+execing m56control.cfg
+loaded skill 1 from bots/default_c.c
+loaded skill 1 from bots/zzqbot_c.c
+loaded skill 4 from bots/default_c.c
+loaded skill 4 from bots/zzqbot_c.c
+loaded zzqbot from bots/zzqbot_t.c
+Successfully loaded Brainworks Bot
+loaded cached skill 2.000000 from bots/zzqbot_c.c
+Successfully loaded Brainworks Bot
+loaded cached skill 4.000000 from bots/default_c.c
+loaded cached skill 4.000000 from bots/zzqbot_c.c
+Successfully loaded Brainworks Bot
+loaded cached skill 4.000000 from bots/default_c.c
+loaded cached skill 4.000000 from bots/zzqbot_c.c
+Successfully loaded Brainworks Bot
+RE_Shutdown( 0 )
+----- R_Init -----
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 3
+HACK: using vertex lightmap approximation
+Initializing Shaders
+----- finished R_Init -----
+Loading vm file vm/ui.qvm...
+Loading 594 external jump table targets
+Loading jts file vm/ui.jts...
+VM file ui compiled to 216216 bytes of code
+ui loaded in 2100608 bytes on the hunk
+180 arenas parsed
+103 bots parsed
+Loading vm file vm/cgame.qvm...
+VM file cgame compiled to 339496 bytes of code
+cgame loaded in 4195328 bytes on the hunk
+Font 'gfx/2d/bigchars.cfg' loaded with 250 chars and 3 images
+Font 'gfx/2d/numbers.cfg' loaded with 11 chars and 2 images
+stitched 0 LoD cracks
+...loaded 3728 faces, 358 meshes, 180 trisurfs, 52 flares
+...found 4115 VBO surfaces (26101 vertexes, 54396 indexes)
+CL_InitCGame:  2.85 seconds
+Com_TouchMemory: 0 msec
+Detected 42 items grouped into 26 static clusters and 0 mobile clusters.
+Divided the level into 26 regions.
+^4zzqBOT^7-^1High1^7 was machinegunned by zzqBOT-Low1^7
+^1zzqBOT^7-^4Low2^7 was machinegunned by zzqBOT-High2^7
+^4zzqBOT^7-^1High2^7 was machinegunned by zzqBOT-Low1^7
+^1zzqBOT^7-^4Low1^7 was machinegunned by zzqBOT-High1^7
+^4zzqBOT^7-^1High2^7 was machinegunned by zzqBOT-Low2^7
+^1zzqBOT^7-^4Low1^7 was melted by zzqBOT-High1^7's plasmagun
+^1zzqBOT^7-^4Low2^7 was melted by zzqBOT-High1^7's plasmagun
+^1zzqBOT^7-^4Low1^7 was melted by zzqBOT-High1^7's plasmagun
+================ CONTROL REPORT A ================
+===== zzqAI M5 难度伺服报告 =====
+机器人        原始   偏移   有效   得分   同场均分
+zzqBOT-Low1             2.00        0.00        2.00        0        0.0
+zzqBOT-Low2             2.00        0.00        2.00        0        0.0
+zzqBOT-High1            4.00        0.00        4.00        0        0.0
+zzqBOT-High2            4.00        0.00        4.00        0        0.0
+评估轮数 1，开关 0，步长 0.30，幅度 1.50，区间 1.0 ~ 5.0
+=================================
+===== zzqAI M6 团队情报报告 =====
+机器人        队伍 角色 收到情报
+zzqBOT-Low1      红    无    0       
+zzqBOT-Low2      红    无    0       
+zzqBOT-High1     蓝    无    0       
+zzqBOT-High2     蓝    无    0       
+红队情报板：0 条有效（有效期 8.0s，响应半径 2500）
+蓝队情报板：0 条有效（有效期 8.0s，响应半径 2500）
+累计情报上报 0 条，开关 0
+=================================
+^1zzqBOT^7-^4Low1^7 was pummeled by zzqBOT-High2^7
+^4zzqBOT^7-^1High2^7 was machinegunned by zzqBOT-Low2^7
+^1zzqBOT^7-^4Low2^7 was gunned down by zzqBOT-High1^7
+^1zzqBOT^7-^4Low1^7 was melted by zzqBOT-High2^7's plasmagun
+^1zzqBOT^7-^4Low2^7 was melted by zzqBOT-High1^7's plasmagun
+^1zzqBOT^7-^4Low2^7 was melted by zzqBOT-High2^7's plasmagun
+^1zzqBOT^7-^4Low1^7 was melted by zzqBOT-High2^7's plasmagun
+^4zzqBOT^7-^1High1^7 was machinegunned by zzqBOT-Low2^7
+^1zzqBOT^7-^4Low1^7 was melted by zzqBOT-High2^7's plasmagun
+^1zzqBOT^7-^4Low2^7 was gunned down by zzqBOT-High2^7
+================ CONTROL REPORT B ================
+===== zzqAI M5 难度伺服报告 =====
+机器人        原始   偏移   有效   得分   同场均分
+zzqBOT-Low1             2.00        0.00        2.00        0        0.0
+zzqBOT-Low2             2.00        0.00        2.00        0        0.0
+zzqBOT-High1            4.00        0.00        4.00        0        0.0
+zzqBOT-High2            4.00        0.00        4.00        0        0.0
+评估轮数 1，开关 0，步长 0.30，幅度 1.50，区间 1.0 ~ 5.0
+=================================
+===== zzqAI M6 团队情报报告 =====
+机器人        队伍 角色 收到情报
+zzqBOT-Low1      红    无    0       
+zzqBOT-Low2      红    无    0       
+zzqBOT-High1     蓝    无    0       
+zzqBOT-High2     蓝    无    0       
+红队情报板：0 条有效（有效期 8.0s，响应半径 2500）
+蓝队情报板：0 条有效（有效期 8.0s，响应半径 2500）
+累计情报上报 0 条，开关 0
+=================================
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+AAS shutdown.
+---------------------------
+----- Client Shutdown (Client quit) -----
+RE_Shutdown( 3 )
+Shutting down Vulkan subsystem
+...destroying window
+...shutting down QVK
+...unloading Vulkan DLL
+-----------------------

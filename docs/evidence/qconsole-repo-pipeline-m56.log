@@ -1,0 +1,342 @@
+logfile opened on Fri Oct 09 20:51:08 2026
+execing default.cfg
+execing q3config.cfg
+com_zoneMegs will be changed upon restarting.
+couldn't exec autoexec.cfg
+fs_game is write protected.
+Hunk_Clear: reset the hunk ok
+...detecting CPU, found Intel(R) Core(TM) i7-6600U CPU @ 2.60GHz
+----- Client Initialization -----
+----- Client Initialization Complete -----
+----- Initializing Renderer ----
+-------------------------------
+----- R_Init -----
+Initializing Vulkan subsystem
+...initializing QVK
+...loading 'C:\Windows\SYSTEM32\vulkan-1.dll' : success
+...current monitor: 1920x1080@0,0 \\.\DISPLAY1
+...setting mode 3: 640 480 W
+...created window@3,22 (646x515)
+.......................
+Available physical devices:
+ 0: Integrated Intel(R) HD Graphics 520, 0x1916
+.......................
+...selected physical device: 0
+...device memory size: 8150MB
+...presentation modes: IMMEDIATE FIFO
+...selected presentation mode: IMMEDIATE, image count: 3
+
+VK_VENDOR: Intel Corporation
+VK_RENDERER: Integrated Intel(R) HD Graphics 520, 0x1916
+VK_VERSION: API: 1.3.205, Driver: 101.1660
+
+VK_MAX_TEXTURE_SIZE: 2048
+VK_MAX_TEXTURE_UNITS: 8
+
+PIXELFORMAT: color(32-bits) Z(24-bit) stencil(0-bits)
+ presentation: VK_FORMAT_B8G8R8A8_UNORM
+ capture: VK_FORMAT_R8G8B8A8_UNORM
+ depth: VK_FORMAT_X8_D24_UNORM_PACK32
+MODE: 3, 640 x 480 windowed hz:60
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 3
+HACK: using vertex lightmap approximation
+Initializing Shaders
+----- finished R_Init -----
+------ Initializing Sound ------
+----- Sound Info -----
+    2 channels
+ 8192 samples
+   32 samplebits (float)
+    1 submission_chunk
+11025 speed
+00000000017958C0 dma buffer
+Using WASAPI subsystem
+No background file.
+----------------------
+Sound initialization successful.
+--------------------------------
+Sound memory manager started
+Loading vm file vm/ui.qvm...
+Loading 594 external jump table targets
+Loading jts file vm/ui.jts...
+VM file ui compiled to 216216 bytes of code
+ui loaded in 2100608 bytes on the hunk
+180 arenas parsed
+103 bots parsed
+--- Common Initialization Complete ---
+Hostname: WIN-20220613L4W
+IP6: fe80::1fe:255d:9e64:827a%26
+IP: 172.16.23.168
+Opening IP6 socket: [::]:27960
+Opening IP socket: 0.0.0.0:27960
+Working directory: D:\Quake 3 Arena-vulkan
+------ Server Initialization ------
+Server: q3dm6
+RE_Shutdown( 0 )
+Hunk_Clear: reset the hunk ok
+...loaded in 1 milliseconds
+----------------------
+13921 files in 23 pk3 files
+Loading vm file vm/qagame.qvm...
+VM file qagame compiled to 599160 bytes of code
+qagame loaded in 4195328 bytes on the hunk
+------- Game Initialization -------
+gamename: brainworks
+gamedate: Oct 09 2026
+Gametype changed, clearing session data.
+0 teams with 0 entities
+16 items registered
+-----------------------------------
+------- BotLib Initialization -------
+loaded weapons.c
+loaded items.c
+loaded syn.c
+loaded rnd.c
+loaded match.c
+loaded rchat.c
+------------ Map Loading ------------
+trying to load maps/q3dm6.aas
+loaded maps/q3dm6.aas
+found 53 level items
+-------------------------------------
+AAS initialized.
+103 bots parsed
+180 arenas parsed
+Detected and set up 0 obstacles and 0 activators: Path activators will not be used
+-----------------------------------
+execing m56final.cfg
+loaded skill 1 from bots/default_c.c
+loaded skill 1 from bots/zzqbot_c.c
+loaded skill 4 from bots/default_c.c
+loaded skill 4 from bots/zzqbot_c.c
+loaded zzqbot from bots/zzqbot_t.c
+Successfully loaded Brainworks Bot
+loaded cached skill 1.000000 from bots/default_c.c
+loaded cached skill 1.000000 from bots/zzqbot_c.c
+loaded cached skill 4.000000 from bots/default_c.c
+loaded cached skill 4.000000 from bots/zzqbot_c.c
+Successfully loaded Brainworks Bot
+loaded cached skill 4.000000 from bots/default_c.c
+loaded cached skill 4.000000 from bots/zzqbot_c.c
+Successfully loaded Brainworks Bot
+loaded skill 5 from bots/default_c.c
+loaded skill 5 from bots/zzqbot_c.c
+Successfully loaded Brainworks Bot
+RE_Shutdown( 0 )
+----- R_Init -----
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 3
+HACK: using vertex lightmap approximation
+Initializing Shaders
+----- finished R_Init -----
+Loading vm file vm/ui.qvm...
+Loading 594 external jump table targets
+Loading jts file vm/ui.jts...
+VM file ui compiled to 216216 bytes of code
+ui loaded in 2100608 bytes on the hunk
+180 arenas parsed
+103 bots parsed
+Loading vm file vm/cgame.qvm...
+VM file cgame compiled to 339496 bytes of code
+cgame loaded in 4195328 bytes on the hunk
+Font 'gfx/2d/bigchars.cfg' loaded with 250 chars and 3 images
+Font 'gfx/2d/numbers.cfg' loaded with 11 chars and 2 images
+stitched 0 LoD cracks
+...loaded 3728 faces, 358 meshes, 180 trisurfs, 52 flares
+...found 4115 VBO surfaces (26101 vertexes, 54396 indexes)
+CL_InitCGame:  2.71 seconds
+Com_TouchMemory: 0 msec
+Detected 42 items grouped into 26 static clusters and 0 mobile clusters.
+Divided the level into 26 regions.
+zzqAI M6: zzqBOT-Red2（突破）收到 zzqBOT-Red1 的情报 -> 距 1601，情报龄 0.0s
+zzqAI M6: zzqBOT-Red2（突破）收到 zzqBOT-Red1 的情报 -> 距 892，情报龄 0.0s
+zzqAI M5: zzqBOT-Red1 得分 0 / 同场均分 0.0 -> 偏移 0.00，有效 skill 2.00
+zzqAI M5: zzqBOT-Red2 得分 0 / 同场均分 0.0 -> 偏移 0.00，有效 skill 3.00
+zzqAI M5: zzqBOT-Blue1 得分 0 / 同场均分 0.0 -> 偏移 0.00，有效 skill 4.00
+zzqAI M5: zzqBOT-Blue2 得分 0 / 同场均分 0.0 -> 偏移 0.00，有效 skill 5.00
+^1zzqBOT^7-^4Red1^7 was machinegunned by zzqBOT-Blue1^7
+zzqAI M6: zzqBOT-Blue2（突破）收到 zzqBOT-Blue1 的情报 -> 距 549，情报龄 0.0s
+zzqAI M6: zzqBOT-Blue2（突破）收到 zzqBOT-Blue1 的情报 -> 距 532，情报龄 1.3s
+zzqAI M5: zzqBOT-Red1 得分 0 / 同场均分 0.3 -> 偏移 0.30，有效 skill 2.29
+zzqAI M5: zzqBOT-Red2 得分 0 / 同场均分 0.3 -> 偏移 0.30，有效 skill 3.29
+zzqAI M5: zzqBOT-Blue1 得分 1 / 同场均分 0.0 -> 偏移 -0.30，有效 skill 3.70
+zzqAI M5: zzqBOT-Blue2 得分 0 / 同场均分 0.3 -> 偏移 0.30，有效 skill 5.00
+zzqAI M6: zzqBOT-Blue2（突破）收到 zzqBOT-Blue1 的情报 -> 距 926，情报龄 2.8s
+^1zzqBOT^7-^4Red2^7 was melted by zzqBOT-Blue1^7's plasmagun
+zzqAI M5: zzqBOT-Red1 得分 0 / 同场均分 0.6 -> 偏移 0.60，有效 skill 2.59
+zzqAI M5: zzqBOT-Red2 得分 0 / 同场均分 0.6 -> 偏移 0.60，有效 skill 3.59
+zzqAI M5: zzqBOT-Blue1 得分 2 / 同场均分 0.0 -> 偏移 -0.60，有效 skill 3.40
+zzqAI M5: zzqBOT-Blue2 得分 0 / 同场均分 0.6 -> 偏移 0.60，有效 skill 5.00
+zzqAI M6: zzqBOT-Blue2（突破）收到 zzqBOT-Blue1 的情报 -> 距 381，情报龄 1.7s
+zzqAI M6: zzqBOT-Red1（守点）收到 zzqBOT-Red2 的情报 -> 距 1758，情报龄 0.7s
+zzqAI M6: zzqBOT-Blue1（守点）收到 zzqBOT-Blue2 的情报 -> 距 332，情报龄 2.8s
+zzqAI M6: zzqBOT-Red1（守点）收到 zzqBOT-Red2 的情报 -> 距 1296，情报龄 2.3s
+zzqAI M5: zzqBOT-Red1 得分 0 / 同场均分 0.6 -> 偏移 0.60，有效 skill 2.59
+zzqAI M5: zzqBOT-Red2 得分 0 / 同场均分 0.6 -> 偏移 0.60，有效 skill 3.59
+zzqAI M5: zzqBOT-Blue1 得分 2 / 同场均分 0.0 -> 偏移 -0.90，有效 skill 3.09
+zzqAI M5: zzqBOT-Blue2 得分 0 / 同场均分 0.6 -> 偏移 0.60，有效 skill 5.00
+zzqAI M6: zzqBOT-Blue1（守点）收到 zzqBOT-Blue2 的情报 -> 距 369，情报龄 4.6s
+zzqAI M6: zzqBOT-Blue2（突破）收到 zzqBOT-Blue1 的情报 -> 距 304，情报龄 5.3s
+zzqAI M6: zzqBOT-Red1（守点）收到 zzqBOT-Red2 的情报 -> 距 887，情报龄 3.9s
+zzqAI M6: zzqBOT-Blue1（守点）收到 zzqBOT-Blue2 的情报 -> 距 330，情报龄 6.2s
+zzqAI M6: zzqBOT-Red1（守点）收到 zzqBOT-Red2 的情报 -> 距 587，情报龄 5.4s
+zzqAI M6: zzqBOT-Blue2（突破）收到 zzqBOT-Blue1 的情报 -> 距 672，情报龄 0.2s
+zzqAI M6: zzqBOT-Red2（突破）收到 zzqBOT-Red1 的情报 -> 距 748，情报龄 0.0s
+zzqAI M5: zzqBOT-Red1 得分 0 / 同场均分 0.6 -> 偏移 0.60，有效 skill 2.59
+zzqAI M5: zzqBOT-Red2 得分 0 / 同场均分 0.6 -> 偏移 0.60，有效 skill 3.59
+zzqAI M5: zzqBOT-Blue1 得分 2 / 同场均分 0.0 -> 偏移 -1.00，有效 skill 3.00
+zzqAI M5: zzqBOT-Blue2 得分 0 / 同场均分 0.6 -> 偏移 0.60，有效 skill 5.00
+^4zzqBOT^7-^1Blue1^7 was gunned down by zzqBOT-Red1^7
+^4zzqBOT^7-^1Blue2^7 was gunned down by zzqBOT-Red1^7
+zzqAI M6: zzqBOT-Red2（突破）收到 zzqBOT-Red1 的情报 -> 距 935，情报龄 0.1s
+zzqAI M6: zzqBOT-Red1（守点）收到 zzqBOT-Red2 的情报 -> 距 306，情报龄 1.0s
+zzqAI M6: zzqBOT-Red2（突破）收到 zzqBOT-Red1 的情报 -> 距 434，情报龄 1.7s
+zzqAI M5: zzqBOT-Red1 得分 2 / 同场均分 0.6 -> 偏移 0.30，有效 skill 2.29
+zzqAI M5: zzqBOT-Red2 得分 0 / 同场均分 1.3 -> 偏移 0.85，有效 skill 3.85
+zzqAI M5: zzqBOT-Blue1 得分 2 / 同场均分 0.6 -> 偏移 -0.70，有效 skill 3.29
+zzqAI M5: zzqBOT-Blue2 得分 0 / 同场均分 1.3 -> 偏移 0.85，有效 skill 5.00
+zzqAI M5: zzqBOT-Red1 得分 2 / 同场均分 0.6 -> 偏移 0.00，有效 skill 2.00
+zzqAI M5: zzqBOT-Red2 得分 0 / 同场均分 1.3 -> 偏移 0.85，有效 skill 3.85
+zzqAI M5: zzqBOT-Blue1 得分 2 / 同场均分 0.6 -> 偏移 -0.54，有效 skill 3.45
+zzqAI M5: zzqBOT-Blue2 得分 0 / 同场均分 1.3 -> 偏移 0.85，有效 skill 5.00
+^4zzqBOT^7-^1Blue1^7 was machinegunned by zzqBOT-Red2^7
+zzqAI M5: zzqBOT-Red1 得分 2 / 同场均分 1.0 -> 偏移 -0.30，有效 skill 1.70
+zzqAI M5: zzqBOT-Red2 得分 1 / 同场均分 1.3 -> 偏移 0.55，有效 skill 3.55
+zzqAI M5: zzqBOT-Blue1 得分 2 / 同场均分 1.0 -> 偏移 -0.37，有效 skill 3.62
+zzqAI M5: zzqBOT-Blue2 得分 0 / 同场均分 1.6 -> 偏移 0.93，有效 skill 5.00
+zzqAI M5: zzqBOT-Red1 得分 2 / 同场均分 1.0 -> 偏移 -0.37，有效 skill 1.62
+zzqAI M5: zzqBOT-Red2 得分 1 / 同场均分 1.3 -> 偏移 0.25，有效 skill 3.25
+zzqAI M5: zzqBOT-Blue1 得分 2 / 同场均分 1.0 -> 偏移 -0.37，有效 skill 3.62
+zzqAI M5: zzqBOT-Blue2 得分 0 / 同场均分 1.6 -> 偏移 0.93，有效 skill 5.00
+================ E2E REPORT A ================
+===== zzqAI M5 难度伺服报告 =====
+机器人        原始   偏移   有效   得分   同场均分
+zzqBOT-Red1             2.00       -0.37        1.62        2        1.0
+zzqBOT-Red2             3.00        0.25        3.25        1        1.3
+zzqBOT-Blue1            4.00       -0.37        3.62        2        1.0
+zzqBOT-Blue2            5.00        0.93        5.00        0        1.6
+评估轮数 10，开关 1，步长 0.30，幅度 1.50，区间 1.0 ~ 5.0
+=================================
+===== zzqAI M6 团队情报报告 =====
+机器人        队伍 角色 收到情报
+zzqBOT-Red1      红    守点 62      
+zzqBOT-Red2      红    突破 25      
+zzqBOT-Blue1     蓝    守点 26      
+zzqBOT-Blue2     蓝    突破 35      
+红队情报板：2 条有效（有效期 10.0s，响应半径 4000）
+蓝队情报板：2 条有效（有效期 10.0s，响应半径 4000）
+累计情报上报 1819 条，开关 1
+=================================
+^1zzqBOT^7-^4Red1^7 was melted by zzqBOT-Blue1^7's plasmagun
+zzqAI M6: zzqBOT-Blue2（突破）收到 zzqBOT-Blue1 的情报 -> 距 308，情报龄 0.4s
+zzqAI M6: zzqBOT-Blue1（守点）收到 zzqBOT-Blue2 的情报 -> 距 310，情报龄 0.5s
+zzqAI M5: zzqBOT-Red1 得分 2 / 同场均分 1.3 -> 偏移 -0.23，有效 skill 1.76
+zzqAI M5: zzqBOT-Red2 得分 1 / 同场均分 1.6 -> 偏移 0.27，有效 skill 3.27
+zzqAI M5: zzqBOT-Blue1 得分 3 / 同场均分 1.0 -> 偏移 -0.60，有效 skill 3.40
+zzqAI M5: zzqBOT-Blue2 得分 0 / 同场均分 2.0 -> 偏移 1.00，有效 skill 5.00
+^1zzqBOT^7-^4Red2^7 was melted by zzqBOT-Blue1^7's plasmagun
+zzqAI M5: zzqBOT-Red1 得分 2 / 同场均分 1.6 -> 偏移 -0.10，有效 skill 1.89
+zzqAI M5: zzqBOT-Red2 得分 1 / 同场均分 2.0 -> 偏移 0.37，有效 skill 3.37
+zzqAI M5: zzqBOT-Blue1 得分 4 / 同场均分 1.0 -> 偏移 -0.75，有效 skill 3.25
+zzqAI M5: zzqBOT-Blue2 得分 0 / 同场均分 2.3 -> 偏移 1.04，有效 skill 5.00
+zzqAI M6: zzqBOT-Blue2（突破）收到 zzqBOT-Blue1 的情报 -> 距 748，情报龄 0.3s
+zzqAI M6: zzqBOT-Blue1（守点）收到 zzqBOT-Blue2 的情报 -> 距 325，情报龄 2.5s
+zzqAI M6: zzqBOT-Blue2（突破）收到 zzqBOT-Blue1 的情报 -> 距 719，情报龄 0.0s
+zzqAI M5: zzqBOT-Red1 得分 2 / 同场均分 1.6 -> 偏移 -0.10，有效 skill 1.89
+zzqAI M5: zzqBOT-Red2 得分 1 / 同场均分 2.0 -> 偏移 0.37，有效 skill 3.37
+zzqAI M5: zzqBOT-Blue1 得分 4 / 同场均分 1.0 -> 偏移 -0.75，有效 skill 3.25
+zzqAI M5: zzqBOT-Blue2 得分 0 / 同场均分 2.3 -> 偏移 1.04，有效 skill 5.00
+zzqAI M6: zzqBOT-Red2（突破）收到 zzqBOT-Red1 的情报 -> 距 1576，情报龄 0.0s
+^1zzqBOT^7-^4Red1^7 was melted by zzqBOT-Blue2^7's plasmagun
+zzqAI M6: zzqBOT-Blue1（守点）收到 zzqBOT-Blue2 的情报 -> 距 554，情报龄 0.0s
+zzqAI M6: zzqBOT-Blue2（突破）收到 zzqBOT-Blue1 的情报 -> 距 313，情报龄 0.8s
+zzqAI M5: zzqBOT-Red1 得分 2 / 同场均分 2.0 -> 偏移 0.00，有效 skill 2.00
+zzqAI M5: zzqBOT-Red2 得分 1 / 同场均分 2.3 -> 偏移 0.46，有效 skill 3.46
+zzqAI M5: zzqBOT-Blue1 得分 4 / 同场均分 1.3 -> 偏移 -0.63，有效 skill 3.36
+zzqAI M5: zzqBOT-Blue2 得分 1 / 同场均分 2.3 -> 偏移 0.74，有效 skill 5.00
+zzqAI M6: zzqBOT-Red2（突破）收到 zzqBOT-Red1 的情报 -> 距 1223，情报龄 0.2s
+zzqAI M6: zzqBOT-Blue2（突破）收到 zzqBOT-Blue1 的情报 -> 距 306，情报龄 2.6s
+zzqAI M6: zzqBOT-Red2（突破）收到 zzqBOT-Red1 的情报 -> 距 853，情报龄 1.9s
+zzqAI M6: zzqBOT-Blue1（守点）收到 zzqBOT-Blue2 的情报 -> 距 310，情报龄 3.3s
+zzqAI M6: zzqBOT-Red2（突破）收到 zzqBOT-Red1 的情报 -> 距 644，情报龄 3.5s
+zzqAI M5: zzqBOT-Red1 得分 2 / 同场均分 2.0 -> 偏移 0.00，有效 skill 2.00
+zzqAI M5: zzqBOT-Red2 得分 1 / 同场均分 2.3 -> 偏移 0.46，有效 skill 3.46
+zzqAI M5: zzqBOT-Blue1 得分 4 / 同场均分 1.3 -> 偏移 -0.63，有效 skill 3.36
+zzqAI M5: zzqBOT-Blue2 得分 1 / 同场均分 2.3 -> 偏移 0.46，有效 skill 5.00
+zzqAI M6: zzqBOT-Red1（守点）收到 zzqBOT-Red2 的情报 -> 距 526，情报龄 0.0s
+^4zzqBOT^7-^1Blue2^7 was gunned down by zzqBOT-Red2^7
+zzqAI M5: zzqBOT-Red1 得分 2 / 同场均分 2.3 -> 偏移 0.09，有效 skill 2.09
+zzqAI M5: zzqBOT-Red2 得分 2 / 同场均分 2.3 -> 偏移 0.16，有效 skill 3.16
+zzqAI M5: zzqBOT-Blue1 得分 4 / 同场均分 1.6 -> 偏移 -0.52，有效 skill 3.47
+zzqAI M5: zzqBOT-Blue2 得分 1 / 同场均分 2.6 -> 偏移 0.53，有效 skill 5.00
+zzqAI M5: zzqBOT-Red1 得分 2 / 同场均分 2.3 -> 偏移 0.09，有效 skill 2.09
+zzqAI M5: zzqBOT-Red2 得分 2 / 同场均分 2.3 -> 偏移 0.09，有效 skill 3.09
+zzqAI M5: zzqBOT-Blue1 得分 4 / 同场均分 1.6 -> 偏移 -0.52，有效 skill 3.47
+zzqAI M5: zzqBOT-Blue2 得分 1 / 同场均分 2.6 -> 偏移 0.53，有效 skill 5.00
+^4zzqBOT^7-^1Blue1^7 was machinegunned by zzqBOT-Red1^7
+zzqAI M6: zzqBOT-Blue2（突破）收到 zzqBOT-Blue1 的情报 -> 距 2335，情报龄 0.1s
+zzqAI M6: zzqBOT-Blue2（突破）收到 zzqBOT-Blue1 的情报 -> 距 1879，情报龄 0.3s
+zzqAI M6: zzqBOT-Red2（突破）收到 zzqBOT-Red1 的情报 -> 距 401，情报龄 2.2s
+zzqAI M6: zzqBOT-Red1（守点）收到 zzqBOT-Red2 的情报 -> 距 537，情报龄 0.0s
+zzqAI M5: zzqBOT-Red1 得分 3 / 同场均分 2.3 -> 偏移 -0.15，有效 skill 1.84
+zzqAI M5: zzqBOT-Red2 得分 2 / 同场均分 2.6 -> 偏移 0.17，有效 skill 3.17
+zzqAI M5: zzqBOT-Blue1 得分 4 / 同场均分 2.0 -> 偏移 -0.42，有效 skill 3.57
+zzqAI M5: zzqBOT-Blue2 得分 1 / 同场均分 3.0 -> 偏移 0.60，有效 skill 5.00
+^1zzqBOT^7-^4Red2^7 cratered.
+zzqAI M6: zzqBOT-Blue2（突破）收到 zzqBOT-Blue1 的情报 -> 距 2105，情报龄 0.4s
+zzqAI M6: zzqBOT-Red1（守点）收到 zzqBOT-Red2 的情报 -> 距 525，情报龄 0.0s
+zzqAI M6: zzqBOT-Blue2（突破）收到 zzqBOT-Blue1 的情报 -> 距 2098，情报龄 0.0s
+zzqAI M5: zzqBOT-Red1 得分 3 / 同场均分 2.0 -> 偏移 -0.25，有效 skill 1.75
+zzqAI M5: zzqBOT-Red2 得分 1 / 同场均分 2.6 -> 偏移 0.47，有效 skill 3.47
+zzqAI M5: zzqBOT-Blue1 得分 4 / 同场均分 1.6 -> 偏移 -0.52，有效 skill 3.47
+zzqAI M5: zzqBOT-Blue2 得分 1 / 同场均分 2.6 -> 偏移 0.53，有效 skill 5.00
+^1zzqBOT^7-^4Red1^7 was melted by zzqBOT-Blue1^7's plasmagun
+zzqAI M6: zzqBOT-Blue2（突破）收到 zzqBOT-Blue1 的情报 -> 距 1243，情报龄 0.4s
+zzqAI M6: zzqBOT-Blue1（守点）收到 zzqBOT-Blue2 的情报 -> 距 1141，情报龄 0.0s
+zzqAI M5: zzqBOT-Red1 得分 3 / 同场均分 2.3 -> 偏移 -0.15，有效 skill 1.84
+zzqAI M5: zzqBOT-Red2 得分 1 / 同场均分 3.0 -> 偏移 0.60，有效 skill 3.59
+zzqAI M5: zzqBOT-Blue1 得分 5 / 同场均分 1.6 -> 偏移 -0.65，有效 skill 3.34
+zzqAI M5: zzqBOT-Blue2 得分 1 / 同场均分 3.0 -> 偏移 0.60，有效 skill 5.00
+^1zzqBOT^7-^4Red2^7 was machinegunned by zzqBOT-Blue2^7
+zzqAI M6: zzqBOT-Blue1（守点）收到 zzqBOT-Blue2 的情报 -> 距 310，情报龄 0.0s
+================ E2E REPORT B ================
+===== zzqAI M5 难度伺服报告 =====
+机器人        原始   偏移   有效   得分   同场均分
+zzqBOT-Red1             2.00       -0.15        1.84        3        2.3
+zzqBOT-Red2             3.00        0.60        3.59        1        3.0
+zzqBOT-Blue1            4.00       -0.65        3.34        5        1.6
+zzqBOT-Blue2            5.00        0.60        5.00        1        3.0
+评估轮数 20，开关 1，步长 0.30，幅度 1.50，区间 1.0 ~ 5.0
+=================================
+===== zzqAI M6 团队情报报告 =====
+机器人        队伍 角色 收到情报
+zzqBOT-Red1      红    守点 87      
+zzqBOT-Red2      红    突破 71      
+zzqBOT-Blue1     蓝    守点 47      
+zzqBOT-Blue2     蓝    突破 110     
+红队情报板：2 条有效（有效期 10.0s，响应半径 4000）
+蓝队情报板：2 条有效（有效期 10.0s，响应半径 4000）
+累计情报上报 3749 条，开关 1
+=================================
+^1zzqBOT^7-^4Red1^7 was gunned down by zzqBOT-Blue1^7
+zzqAI M6: zzqBOT-Blue2（突破）收到 zzqBOT-Blue1 的情报 -> 距 818，情报龄 0.0s
+zzqAI M5: zzqBOT-Red1 得分 3 / 同场均分 3.0 -> 偏移 0.00，有效 skill 2.00
+zzqAI M5: zzqBOT-Red2 得分 1 / 同场均分 3.6 -> 偏移 0.70，有效 skill 3.70
+zzqAI M5: zzqBOT-Blue1 得分 6 / 同场均分 2.0 -> 偏移 -0.66，有效 skill 3.33
+zzqAI M5: zzqBOT-Blue2 得分 2 / 同场均分 3.3 -> 偏移 0.31，有效 skill 5.00
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+AAS shutdown.
+---------------------------
+----- Client Shutdown (Client quit) -----
+RE_Shutdown( 3 )
+Shutting down Vulkan subsystem
+...destroying window
+...shutting down QVK
+...unloading Vulkan DLL
+-----------------------

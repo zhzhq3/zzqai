@@ -4,6 +4,12 @@ code/game/vm/
 *.map
 *.asm
 !code/game/g_syscalls.asm
+# release/ 下的 qvm 是"可直接拿走的产物"，必须提交
+!release/*.qvm
+
+# 移植期临时备份（正式位置是 docs/porting-notes/）
+code/game/*.orig
+code/game/*.unused
 
 # 编辑器 / 系统
 .vscode/

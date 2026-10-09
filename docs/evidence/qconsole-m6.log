@@ -1,0 +1,260 @@
+logfile opened on Fri Oct 09 20:45:13 2026
+execing default.cfg
+execing q3config.cfg
+com_zoneMegs will be changed upon restarting.
+couldn't exec autoexec.cfg
+fs_game is write protected.
+Hunk_Clear: reset the hunk ok
+...detecting CPU, found Intel(R) Core(TM) i7-6600U CPU @ 2.60GHz
+----- Client Initialization -----
+----- Client Initialization Complete -----
+----- Initializing Renderer ----
+-------------------------------
+----- R_Init -----
+Initializing Vulkan subsystem
+...initializing QVK
+...loading 'C:\Windows\SYSTEM32\vulkan-1.dll' : success
+...current monitor: 1920x1080@0,0 \\.\DISPLAY1
+...setting mode 3: 640 480 W
+...created window@3,22 (646x515)
+.......................
+Available physical devices:
+ 0: Integrated Intel(R) HD Graphics 520, 0x1916
+.......................
+...selected physical device: 0
+...device memory size: 8150MB
+...presentation modes: IMMEDIATE FIFO
+...selected presentation mode: IMMEDIATE, image count: 3
+
+VK_VENDOR: Intel Corporation
+VK_RENDERER: Integrated Intel(R) HD Graphics 520, 0x1916
+VK_VERSION: API: 1.3.205, Driver: 101.1660
+
+VK_MAX_TEXTURE_SIZE: 2048
+VK_MAX_TEXTURE_UNITS: 8
+
+PIXELFORMAT: color(32-bits) Z(24-bit) stencil(0-bits)
+ presentation: VK_FORMAT_B8G8R8A8_UNORM
+ capture: VK_FORMAT_R8G8B8A8_UNORM
+ depth: VK_FORMAT_X8_D24_UNORM_PACK32
+MODE: 3, 640 x 480 windowed hz:60
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 3
+HACK: using vertex lightmap approximation
+Initializing Shaders
+----- finished R_Init -----
+------ Initializing Sound ------
+----- Sound Info -----
+    2 channels
+ 8192 samples
+   32 samplebits (float)
+    1 submission_chunk
+11025 speed
+00000000017958C0 dma buffer
+Using WASAPI subsystem
+No background file.
+----------------------
+Sound initialization successful.
+--------------------------------
+Sound memory manager started
+Loading vm file vm/ui.qvm...
+Loading 594 external jump table targets
+Loading jts file vm/ui.jts...
+VM file ui compiled to 216216 bytes of code
+ui loaded in 2100608 bytes on the hunk
+180 arenas parsed
+103 bots parsed
+--- Common Initialization Complete ---
+Hostname: WIN-20220613L4W
+IP6: fe80::1fe:255d:9e64:827a%26
+IP: 172.16.23.168
+Opening IP6 socket: [::]:27960
+Opening IP socket: 0.0.0.0:27960
+Working directory: D:\Quake 3 Arena-vulkan
+------ Server Initialization ------
+Server: q3dm6
+RE_Shutdown( 0 )
+Hunk_Clear: reset the hunk ok
+...loaded in 1 milliseconds
+----------------------
+13921 files in 23 pk3 files
+Loading vm file vm/qagame.qvm...
+VM file qagame compiled to 599160 bytes of code
+qagame loaded in 4195328 bytes on the hunk
+------- Game Initialization -------
+gamename: brainworks
+gamedate: Oct 09 2026
+Gametype changed, clearing session data.
+0 teams with 0 entities
+16 items registered
+-----------------------------------
+------- BotLib Initialization -------
+loaded weapons.c
+loaded items.c
+loaded syn.c
+loaded rnd.c
+loaded match.c
+loaded rchat.c
+------------ Map Loading ------------
+trying to load maps/q3dm6.aas
+loaded maps/q3dm6.aas
+found 53 level items
+-------------------------------------
+AAS initialized.
+103 bots parsed
+180 arenas parsed
+Detected and set up 0 obstacles and 0 activators: Path activators will not be used
+-----------------------------------
+execing m6test.cfg
+loaded skill 4 from bots/default_c.c
+loaded skill 4 from bots/zzqbot_c.c
+loaded zzqbot from bots/zzqbot_t.c
+Successfully loaded Brainworks Bot
+loaded cached skill 4.000000 from bots/default_c.c
+loaded cached skill 4.000000 from bots/zzqbot_c.c
+Successfully loaded Brainworks Bot
+loaded cached skill 4.000000 from bots/default_c.c
+loaded cached skill 4.000000 from bots/zzqbot_c.c
+Successfully loaded Brainworks Bot
+loaded cached skill 4.000000 from bots/default_c.c
+loaded cached skill 4.000000 from bots/zzqbot_c.c
+Successfully loaded Brainworks Bot
+RE_Shutdown( 0 )
+----- R_Init -----
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 3
+HACK: using vertex lightmap approximation
+Initializing Shaders
+----- finished R_Init -----
+Loading vm file vm/ui.qvm...
+Loading 594 external jump table targets
+Loading jts file vm/ui.jts...
+VM file ui compiled to 216216 bytes of code
+ui loaded in 2100608 bytes on the hunk
+180 arenas parsed
+103 bots parsed
+Loading vm file vm/cgame.qvm...
+VM file cgame compiled to 339496 bytes of code
+cgame loaded in 4195328 bytes on the hunk
+Font 'gfx/2d/bigchars.cfg' loaded with 250 chars and 3 images
+Font 'gfx/2d/numbers.cfg' loaded with 11 chars and 2 images
+stitched 0 LoD cracks
+...loaded 3728 faces, 358 meshes, 180 trisurfs, 52 flares
+...found 4115 VBO surfaces (26101 vertexes, 54396 indexes)
+CL_InitCGame:  2.72 seconds
+Com_TouchMemory: 0 msec
+Detected 42 items grouped into 26 static clusters and 0 mobile clusters.
+Divided the level into 26 regions.
+zzqAI M6: zzqBOT-Red1（突破）收到 zzqBOT-Red2 的情报 -> 距 1894，情报龄 0.0s
+zzqAI M6: zzqBOT-Blue1（突破）收到 zzqBOT-Blue2 的情报 -> 距 1129，情报龄 0.0s
+zzqAI M6: zzqBOT-Red1（突破）收到 zzqBOT-Red2 的情报 -> 距 1476，情报龄 0.0s
+^4zzqBOT^7-^1Blue1^7 was machinegunned by zzqBOT-Red1^7
+^1zzqBOT^7-^4Red1^7 was melted by zzqBOT-Blue1^7's plasmagun
+zzqAI M6: zzqBOT-Blue1（突破）收到 zzqBOT-Blue2 的情报 -> 距 877，情报龄 0.0s
+zzqAI M6: zzqBOT-Red1（突破）收到 zzqBOT-Red2 的情报 -> 距 427，情报龄 0.0s
+^4zzqBOT^7-^1Blue2^7 was machinegunned by zzqBOT-Red2^7
+^1zzqBOT^7-^4Red1^7 was gunned down by zzqBOT-Blue1^7
+^4zzqBOT^7-^1Blue1^7 was machinegunned by zzqBOT-Red2^7
+zzqAI M6: zzqBOT-Blue2（守点）收到 zzqBOT-Blue1 的情报 -> 距 495，情报龄 0.3s
+^1zzqBOT^7-^4Red2^7 was machinegunned by zzqBOT-Blue2^7
+zzqAI M6: zzqBOT-Blue1（突破）收到 zzqBOT-Blue2 的情报 -> 距 1633，情报龄 0.0s
+zzqAI M6: zzqBOT-Blue1（突破）收到 zzqBOT-Blue2 的情报 -> 距 1335，情报龄 1.6s
+zzqAI M6: zzqBOT-Blue2（守点）收到 zzqBOT-Blue1 的情报 -> 距 326，情报龄 2.5s
+zzqAI M6: zzqBOT-Blue2（守点）收到 zzqBOT-Blue1 的情报 -> 距 1323，情报龄 0.1s
+zzqAI M6: zzqBOT-Blue2（守点）收到 zzqBOT-Blue1 的情报 -> 距 786，情报龄 0.0s
+^1zzqBOT^7-^4Red1^7 was melted by zzqBOT-Blue1^7's plasmagun
+^4zzqBOT^7-^1Blue1^7 was machinegunned by zzqBOT-Red2^7
+^1zzqBOT^7-^4Red2^7 was gunned down by zzqBOT-Blue2^7
+zzqAI M6: zzqBOT-Blue2（守点）收到 zzqBOT-Blue1 的情报 -> 距 309，情报龄 1.3s
+zzqAI M6: zzqBOT-Blue1（突破）收到 zzqBOT-Blue2 的情报 -> 距 1457，情报龄 1.3s
+zzqAI M6: zzqBOT-Blue2（守点）收到 zzqBOT-Blue1 的情报 -> 距 310，情报龄 2.9s
+zzqAI M6: zzqBOT-Blue1（突破）收到 zzqBOT-Blue2 的情报 -> 距 1269，情报龄 3.0s
+================ M6 REPORT A ================
+===== zzqAI M6 团队情报报告 =====
+机器人        队伍 角色 收到情报
+zzqBOT-Red1      红    突破 5       
+zzqBOT-Red2      红    守点 0       
+zzqBOT-Blue1     蓝    突破 54      
+zzqBOT-Blue2     蓝    守点 40      
+红队情报板：2 条有效（有效期 10.0s，响应半径 4000）
+蓝队情报板：2 条有效（有效期 10.0s，响应半径 4000）
+累计情报上报 2180 条，开关 1
+=================================
+zzqAI M6: zzqBOT-Red2（守点）收到 zzqBOT-Red1 的情报 -> 距 1435，情报龄 0.0s
+^1zzqBOT^7-^4Red1^7 was gunned down by zzqBOT-Blue2^7
+^1zzqBOT^7-^4Red2^7 was gunned down by zzqBOT-Blue2^7
+zzqAI M6: zzqBOT-Blue1（突破）收到 zzqBOT-Blue2 的情报 -> 距 355，情报龄 0.2s
+zzqAI M6: zzqBOT-Blue1（突破）收到 zzqBOT-Blue2 的情报 -> 距 659，情报龄 0.1s
+^4zzqBOT^7-^1Blue2^7 was machinegunned by zzqBOT-Red1^7
+^1zzqBOT^7-^4Red1^7 was melted by zzqBOT-Blue2^7's plasmagun
+^4zzqBOT^7-^1Blue1^7 was machinegunned by zzqBOT-Red1^7
+zzqAI M6: zzqBOT-Red2（守点）收到 zzqBOT-Red1 的情报 -> 距 304，情报龄 1.0s
+^1zzqBOT^7-^4Red2^7 was machinegunned by zzqBOT-Blue2^7
+zzqAI M6: zzqBOT-Blue2（守点）收到 zzqBOT-Blue1 的情报 -> 距 1045，情报龄 0.0s
+^1zzqBOT^7-^4Red1^7 was pummeled by zzqBOT-Blue2^7
+zzqAI M6: zzqBOT-Blue2（守点）收到 zzqBOT-Blue1 的情报 -> 距 604，情报龄 0.0s
+^4zzqBOT^7-^1Blue1^7 was pummeled by zzqBOT-Red2^7
+zzqAI M6: zzqBOT-Red2（守点）收到 zzqBOT-Red1 的情报 -> 距 1270，情报龄 0.3s
+^4zzqBOT^7-^1Blue2^7 was pummeled by zzqBOT-Red2^7
+zzqAI M6: zzqBOT-Red2（守点）收到 zzqBOT-Red1 的情报 -> 距 1078，情报龄 1.2s
+zzqAI M6: zzqBOT-Red2（守点）收到 zzqBOT-Red1 的情报 -> 距 773，情报龄 0.2s
+================ M6 REPORT B ================
+===== zzqAI M6 团队情报报告 =====
+机器人        队伍 角色 收到情报
+zzqBOT-Red1      红    突破 5       
+zzqBOT-Red2      红    守点 20      
+zzqBOT-Blue1     蓝    突破 66      
+zzqBOT-Blue2     蓝    守点 55      
+红队情报板：2 条有效（有效期 10.0s，响应半径 4000）
+蓝队情报板：2 条有效（有效期 10.0s，响应半径 4000）
+累计情报上报 4502 条，开关 1
+=================================
+^1zzqBOT^7-^4Red1^7 was machinegunned by zzqBOT-Blue1^7
+^1zzqBOT^7-^4Red2^7 was machinegunned by zzqBOT-Blue2^7
+zzqAI M6: zzqBOT-Blue2（守点）收到 zzqBOT-Blue1 的情报 -> 距 655，情报龄 0.0s
+zzqAI M6: zzqBOT-Blue2（守点）收到 zzqBOT-Blue1 的情报 -> 距 355，情报龄 1.8s
+zzqAI M6: zzqBOT-Blue1（突破）收到 zzqBOT-Blue2 的情报 -> 距 302，情报龄 1.9s
+zzqAI M6: zzqBOT-Blue2（守点）收到 zzqBOT-Blue1 的情报 -> 距 373，情报龄 3.6s
+zzqAI M6: zzqBOT-Blue1（突破）收到 zzqBOT-Blue2 的情报 -> 距 323，情报龄 3.7s
+zzqAI M6: zzqBOT-Red1（突破）收到 zzqBOT-Red2 的情报 -> 距 535，情报龄 1.9s
+zzqAI M6: zzqBOT-Blue2（守点）收到 zzqBOT-Blue1 的情报 -> 距 314，情报龄 5.2s
+zzqAI M6: zzqBOT-Red1（突破）收到 zzqBOT-Red2 的情报 -> 距 425，情报龄 3.5s
+zzqAI M6: zzqBOT-Blue2（守点）收到 zzqBOT-Blue1 的情报 -> 距 355，情报龄 6.8s
+zzqAI M6: zzqBOT-Red1（突破）收到 zzqBOT-Red2 的情报 -> 距 701，情报龄 0.0s
+^4zzqBOT^7-^1Blue1^7 was gunned down by zzqBOT-Red1^7
+zzqAI M6: zzqBOT-Red2（守点）收到 zzqBOT-Red1 的情报 -> 距 669，情报龄 0.0s
+^4zzqBOT^7-^1Blue2^7 was melted by zzqBOT-Red1^7's plasmagun
+zzqAI M6: zzqBOT-Red1（突破）收到 zzqBOT-Red2 的情报 -> 距 368，情报龄 1.7s
+^4zzqBOT^7-^1Blue1^7 was melted by zzqBOT-Red1^7's plasmagun
+zzqAI M6: zzqBOT-Red2（守点）收到 zzqBOT-Red1 的情报 -> 距 1066，情报龄 0.0s
+^4zzqBOT^7-^1Blue2^7 was melted by zzqBOT-Red1^7's plasmagun
+zzqAI M6: zzqBOT-Red1（突破）收到 zzqBOT-Red2 的情报 -> 距 318，情报龄 1.6s
+zzqAI M6: zzqBOT-Red1（突破）收到 zzqBOT-Red2 的情报 -> 距 321，情报龄 3.3s
+zzqAI M6: zzqBOT-Blue1（突破）收到 zzqBOT-Blue2 的情报 -> 距 1373，情报龄 2.3s
+================ M6 REPORT C ================
+===== zzqAI M6 团队情报报告 =====
+机器人        队伍 角色 收到情报
+zzqBOT-Red1      红    突破 65      
+zzqBOT-Red2      红    守点 35      
+zzqBOT-Blue1     蓝    突破 84      
+zzqBOT-Blue2     蓝    守点 106     
+红队情报板：2 条有效（有效期 10.0s，响应半径 4000）
+蓝队情报板：2 条有效（有效期 10.0s，响应半径 4000）
+累计情报上报 6323 条，开关 1
+=================================
+^4zzqBOT^7-^1Blue2^7 was melted by zzqBOT-Red1^7's plasmagun
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+AAS shutdown.
+---------------------------
+----- Client Shutdown (Client quit) -----
+RE_Shutdown( 3 )
+Shutting down Vulkan subsystem
+...destroying window
+...shutting down QVK
+...unloading Vulkan DLL
+-----------------------

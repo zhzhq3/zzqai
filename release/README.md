@@ -5,7 +5,7 @@
 | 文件 | 说明 |
 |---|---|
 | `brainworks.pk3` | **完整组装好的模组**，含新 qagame.qvm + 伤害数字 cgame.qvm + zzqBOT 角色与素材。丢进游戏就能玩 |
-| `qagame.qvm` | 单独编译出的游戏逻辑 VM（594,524 字节），供想自己打进 pk3 的人使用 |
+| `qagame.qvm` | 单独编译出的游戏逻辑 VM（605,568 字节），供想自己打进 pk3 的人使用 |
 
 ## 快速安装
 
@@ -27,8 +27,8 @@ quake3e.x64.exe +set fs_game brainworks +devmap q3dm4 +exec zzqbot.cfg
 （`bash build/build_qagame.sh` 可复现）：
 
 ```
-大小    594,524 字节
-md5     2edbfaf7799339059da19d19d0004386
+大小    605,568 字节
+md5     a44a8fb6948b85f77ccb98a37a677950
 ```
 
 `brainworks.pk3` 内 `vm/qagame.qvm` 与上面的 md5 相同。
@@ -61,6 +61,8 @@ set bot_profile 0
 set bot_item_wait 0
 set bot_duel 0
 set bot_duel_move 0
+set bot_adaptive 0
+set bot_share 0
 ```
 
 已在对照实验中验证：行为完全等同原版，零额外日志。

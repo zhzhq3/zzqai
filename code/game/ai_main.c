@@ -11,6 +11,7 @@
 #include "ai_vars.h"
 
 #include "ai_attack.h"
+#include "ai_adaptive.h"
 #include "ai_client.h"
 #include "ai_duel.h"
 #include "ai_entity.h"
@@ -22,6 +23,7 @@
 #include "ai_region.h"
 #include "ai_scan.h"
 #include "ai_self.h"
+#include "ai_share.h"
 #include "ai_team.h"
 #include "ai_weapon.h"
 
@@ -121,6 +123,12 @@ int BotAISetup(int restart)
 
 	// zzqAI M1: 清空对手档案
 	LevelProfileReset();
+
+	// zzqAI M5: 清空难度伺服状态
+	LevelAdaptiveReset();
+
+	// zzqAI M6: 清空团队情报与角色
+	LevelShareReset();
 
 	// Initialize the AI library
 	return (LevelLibrarySetup() == BLERR_NOERROR);
@@ -223,6 +231,20 @@ int BotAIStartFrame(int time)
 		trap_Cvar_Set("bot_duel_report", "0");
 	}
 
+	// zzqAI M5: 打印一次难度伺服汇总
+	if (bot_adaptive_report.integer)
+	{
+		BotAdaptiveReport();
+		trap_Cvar_Set("bot_adaptive_report", "0");
+	}
+
+	// zzqAI M6: 打印一次团队情报汇总
+	if (bot_share_report.integer)
+	{
+		BotShareReport();
+		trap_Cvar_Set("bot_share_report", "0");
+	}
+
 	// Update the AI Engine's entity library every time the server updates
 	if (server_elapsed)
 		LevelLibraryUpdate();
@@ -246,12 +268,24 @@ int BotAIStartFrame(int time)
 		// zzqAI M1: 更新对手档案（按玩家、随时间衰减的行为画像）
 		LevelProfileUpdate(server_elapsed);
 
+		// zzqAI M5: 难度伺服（按每个 bot 的相对表现浮动 skill）
+		BotAdaptiveUpdate(server_elapsed);
+
+		// zzqAI M6: 团队情报——重算队伍角色分工
+		BotShareUpdate(server_elapsed);
+
 		// Update the lists and areas of all dynamic items, including dropped items
 		LevelItemUpdate();
 
 		// Scan the level for changes in flag locations
 		LevelFlagScan();
 	}
+
+	// zzqAI M5: 把难度伺服算出的有效 skill 写回每个机器人
+	//
+	// NOTE: 必须在 BotActions 之前完成，否则本帧读到的是上一帧的难度值。
+	for (i = 0; i < MAX_CLIENTS; i++)
+		BotAdaptiveApply(bot_states[i]);
 
 	// Determine which actions each bot should take
 	for (i = 0; i < MAX_CLIENTS; i++)

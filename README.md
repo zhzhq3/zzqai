@@ -26,7 +26,7 @@ brainworks 已经具备：
 哪怕自己只剩 10 点血、对面满血满甲。也不会提前去占物品刷新点，更不会在丢失敌人后
 按对手的活动习惯去搜。
 
-zzqAI 补上四件事（**M1–M4**）：
+zzqAI 补上六件事（**M1–M6**）：
 
 | 模块 | 做什么 | 新增/改动 |
 |---|---|---|
@@ -34,13 +34,16 @@ zzqAI 补上四件事（**M1–M4**）：
 | **M2 物品时钟** | 允许机器人为高价值物品**提前到位等待**（原版有一条 `pickup_time < soonest_respawn` 就直接放弃，所以永远不会提前占位） | `ai_pickup.c` |
 | **M3 决斗策略机** | 每帧算出态势 **压上 / 对枪 / 脱离**；劣势时不再送人头，而是去最近的血包/护甲 | `ai_duel.c/.h`（新）；挂 `ai_maingoal.c` / `ai_action.c` |
 | **M4 战斗走位** | 站在理想交火距离时**绕圈横移**（circle strafe）而不是原地站桩；劣势时保持面向敌人向外后撤（边退边打） | `ai_move.c`（新增 `MOVE_CIRCLE`） |
+| **M5 连续自适应难度** | skill 不再固定 1~5。按每个机器人这一局的得分表现连续地抬高或压低它的有效 skill —— 打得好的被压、打得差的被抬，队伍自动趋衡 | `ai_adaptive.c/.h`（新）；挂 `ai_main.c` / `ai_vars.c` |
+| **M6 团队情报共享** | 团队模式里互相通报敌人位置；队友没看到人时会去情报点搜人。队内按进攻性自动分工（突破 / 策应 / 守点），角色决定响应半径 | `ai_share.c/.h`（新）；挂 `ai_aware.c` / `ai_maingoal.c` |
 
 另外附带两个独立交付物：
 
 - **zzqBOT** —— 一个 bot 模式（纯运行时角色数据，不碰 AI 逻辑）。
 - **伤害数字** —— 打中敌人时对方身上冒伤害值（CPMA 风格），由自编译的 `cgame.qvm` 提供。
 
-> 想只关掉 zzqAI 而保留 zzqBOT / 伤害数字：把四个 cvar 设 0 即可。
+> 想只关掉 zzqAI 而保留 zzqBOT / 伤害数字：把六个模块的 cvar 设 0 即可
+> （`bot_profile` / `bot_item_wait` / `bot_duel` / `bot_duel_move` / `bot_adaptive` / `bot_share`）。
 
 ---
 
@@ -114,6 +117,16 @@ quake3e.x64.exe +set fs_game brainworks +set logfile 1 +devmap q3dm4 +exec m3tes
 | `bot_duel_move` | 1 | M4 战斗走位（绕圈横移 + 劣势后撤） |
 | `bot_duel_debug` | 0 | 实时打印态势变化（较刷屏） |
 | `bot_duel_report` | 0 | 置 1 打印一次全部机器人态势汇总（自动清零） |
+| `bot_adaptive` | 1 | M5 连续自适应难度总开关 |
+| `bot_adaptive_rate` | 0.30 | 每个评估周期最多移动的 skill 量 |
+| `bot_adaptive_range` | 1.5 | skill 偏移的绝对值上限 |
+| `bot_adaptive_min` / `_max` | 1.0 / 5.0 | 有效 skill 的上下限 |
+| `bot_adaptive_interval` | 6.0 | 评估周期（秒） |
+| `bot_adaptive_debug` / `_report` | 0 | 实时调整日志 / 一次汇总 |
+| `bot_share` | 1 | M6 团队情报共享总开关（**仅团队模式生效**） |
+| `bot_share_lifetime` | 8.0 | 一条情报的有效期（秒） |
+| `bot_share_range` | 2500 | 情报响应距离上限 |
+| `bot_share_debug` / `_report` | 0 | 实时情报日志 / 一次汇总 |
 
 全部为 0 时行为**完全等同 brainworks 原版**（已在对照实验中验证）。
 
@@ -151,6 +164,45 @@ AI-Three     压上          0.41 15       13       6
 
 完整日志：[`docs/evidence/qconsole-m34.log`](docs/evidence/qconsole-m34.log)、
 [`docs/05-验证记录.md`](docs/05-验证记录.md)。
+
+### M5 难度伺服（`q3dm4`，4 个机器人，两组不同初始 skill）
+
+`Low*` 初始 skill 2，`High*` 初始 skill 4。跑约 2 分钟后的汇总：
+
+```
+机器人        原始   偏移   有效   得分   同场均分
+zzqBOT-Low1   2.00  -0.17   1.82    9     7.0
+zzqBOT-Low2   2.00   0.65   2.65    3     8.5     ← 得分最低，被抬起来
+zzqBOT-High1  4.00  -0.59   3.40   14     5.7     ← 得分最高，被压下去
+zzqBOT-High2  4.00  -0.36   3.63   11     6.5
+```
+
+两组的 skill 差距从 **2.00** 收敛到 **0.75** —— 伺服按**个体表现**生效，不是按初始档位。
+140 条调整日志，36 轮评估，0 报错。
+
+### M6 团队情报（`q3dm6`，TDM，红蓝各 2 个机器人）
+
+```
+机器人        队伍 角色 收到情报
+zzqBOT-Red1      红    突破 65
+zzqBOT-Red2      红    守点 35
+zzqBOT-Blue1     蓝    突破 84
+zzqBOT-Blue2     蓝    守点 106
+红队情报板：2 条有效（有效期 10.0s，响应半径 4000）
+蓝队情报板：2 条有效（有效期 10.0s，响应半径 4000）
+累计情报上报 6323 条
+```
+
+```
+zzqAI M6: zzqBOT-Red1（突破）收到 zzqBOT-Red2 的情报 -> 距 1894，情报龄 0.0s
+```
+
+### 对照组（M5 + M6 全关）
+
+偏移全 0、有效 skill = 原始值、角色全"无"、情报板 0 条、上报 0 条、**0 报错**，
+击杀照常发生 ⇒ 关掉后完全退回原版。
+
+详见 [`docs/06-M5-M6-实现说明.md`](docs/06-M5-M6-实现说明.md)。
 
 ---
 
@@ -196,7 +248,7 @@ build/              编译脚本
 cgame/              伤害数字功能的 overlay 文件与说明
 botfiles/bots/      zzqBOT 角色定义（引擎扫 botfiles/ 找角色文件）
 scripts/zzqbot.bot  zzqBOT 索引条目（引擎扫 scripts/*.bot 发现机器人）
-config/             zzqbot.cfg 与 M1–M4 验证/对照配置
+config/             zzqbot.cfg 与 M1–M6 验证/对照配置
 release/            已编译好的 qagame.qvm / cgame.qvm 与组装好的 brainworks.pk3
 docs/               设计文档、实现说明、验证记录
 upstream/           上游原版 pk3 与许可证，便于对比与回退
@@ -212,6 +264,7 @@ tools/pack_release.sh  把产物重新打进 pk3
 | [`docs/01-三方对比与第四代设计.md`](docs/01-三方对比与第四代设计.md) | brainworks / Quake3AI / Quake3bot 三方横向对比，"第四代"方案 |
 | [`docs/02-M1-M2-实现说明.md`](docs/02-M1-M2-实现说明.md) | M1 对手档案 + M2 物品时钟的实现细节 |
 | [`docs/03-M3-M4-实现说明.md`](docs/03-M3-M4-实现说明.md) | M3 决斗策略机 + M4 战斗走位的实现细节 |
+| [`docs/06-M5-M6-实现说明.md`](docs/06-M5-M6-实现说明.md) | M5 连续自适应难度 + M6 团队情报共享的实现细节 |
 | [`docs/04-构建与安装.md`](docs/04-构建与安装.md) | 从零构建、打包、踩坑记录 |
 | [`docs/05-验证记录.md`](docs/05-验证记录.md) | 实跑验证数据与对照组结果 |
 | [`CHANGELOG.md`](CHANGELOG.md) | 版本变更 |
@@ -230,6 +283,14 @@ tools/pack_release.sh  把产物重新打进 pk3
 4. 机器人进场很晚，脚本里 `wait` 要给够（本仓库测试配置用 1500 帧起）。
 5. `SetRespawn()` 之类的函数会被编译器内联，**不要用"有没有 call 指令"判断改动是否生效**，
    要看它引用的常量。
+6. **新目标在 `goal_sieve` 里的顺序决定它到底会不会被执行。** 原版目标检查是"先命中者胜"，
+   所以一条排在 `BotGoalItemChoice`（"去重要物品点"）之后的新目标，实战中几乎永远轮不到 ——
+   M6 的情报目标最初就踩了这个坑，整局"收到情报"计数为 0，把它提前到物品检查之前
+   立刻就有了 40 条日志。
+7. **M6 只在团队模式生效**（`game_style & GS_TEAM`）。用 FFA 图跑 TDM 时必须显式
+   `+set g_gametype 3`，否则 `BotTeam()` 返回 `TEAM_FREE`，所有情报入口直接返回，看起来像坏了。
+8. 想观察"自适应难度有没有真的在动"，别只看 `cvarlist` —— 报告里给出的是
+   **原始 skill / 偏移 / 有效 skill** 三列，只看 cvar 是看不出偏移的。
 
 ---
 
