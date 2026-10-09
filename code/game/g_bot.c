@@ -942,6 +942,9 @@ void G_InitBots( qboolean restart ) {
 	G_LoadBots();
 	G_LoadArenas();
 
+	// zzqAI: 保持 0 —— 本 mod 走"玩家自己在菜单里加机器人"的路线
+	// （游戏内 ESC → ADD BOTS，菜单自带 BOT SKILL 五档难度，底层就是 addbot 命令）。
+	// 想要自动补人，玩家在控制台 set bot_minplayers N 即可。
 	trap_Cvar_Register( &bot_minplayers, "bot_minplayers", "0", CVAR_SERVERINFO );
 	trap_Cvar_Register( &g_dmgdebug, "g_dmgdebug", "0", CVAR_ARCHIVE );
 

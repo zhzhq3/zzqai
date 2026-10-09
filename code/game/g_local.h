@@ -10,7 +10,10 @@
 
 // the "gameversion" client command will print this plus compile date
 //#define	GAMEVERSION	"baseq3"
-#define	GAMEVERSION	"brainworks"
+// zzqAI: 独立 mod 身份（原为 "brainworks"）。
+// 该字符串是服务器广播的 `gamename`，客户端与之匹配；独立取值可避免
+// 与已安装的 brainworks 互相串线。改它不影响 QVM 逻辑。
+#define	GAMEVERSION	"zzqai"
 
 #define BODY_QUEUE_SIZE		8
 

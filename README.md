@@ -62,7 +62,34 @@ zzqAI 补上六件事（**M1–M6**）：
 
 ## 快速开始
 
-### 一、直接玩（Windows）
+### 一、直接玩（推荐，零配置）
+
+**不需要任何启动参数，也不需要控制台命令。**
+
+```
+1. 解压 release/zzqai-1.2.0-standalone.zip 到 Quake 3 安装根目录
+   （和 baseq3 文件夹同级，解压后得到 <Quake3>/zzqai/）
+2. 启动游戏 → 主菜单 MODS（模组）→ 列表里选中 zzqai
+3. MULTIPLAYER → CREATE 开图 → 进游戏后按 ESC → ADD BOTS
+```
+
+`ADD BOTS` 菜单自带 **BOT SKILL** 五档难度（I Can Win → Nightmare，对应内部
+skill 1–5），勾选想加的机器人（含本模组的 **zzqBOT**）后按 FIGHT 即可。
+底层就是 `addbot "<名字>" <skill>`，与 `Svcmd_AddBot_f` 的参数解析完全一致。
+
+装完的目录长这样，卸载 = 删掉这个文件夹，游戏本体零改动：
+
+```
+<Quake3>/baseq3/
+<Quake3>/zzqai/
+<Quake3>/zzqai/zzqai.pk3
+<Quake3>/zzqai/description.txt
+<Quake3>/zzqai/README.txt
+```
+
+想让它自动补人（不手动加）也可以：控制台 `bot_minplayers 3`。
+
+### 二、覆盖式安装（旧流程，仍可回退）
 
 ```
 1. 把 release/brainworks.pk3 放进 Quake 3 的 brainworks/ 目录（覆盖原文件，先备份）
@@ -78,7 +105,7 @@ quake3e.x64.exe +set fs_game brainworks +devmap q3dm4 +exec zzqbot.cfg
 > 必须用 `devmap` 而不是 `map`：`bot_*` 系列 cvar 带 `CVAR_CHEAT`，
 > 普通开局改不动它们。
 
-### 二、自己编译
+### 三、自己编译
 
 ```bash
 # 需要 Windows + Git Bash（仓库自带 lcc/q3asm 工具链）
@@ -86,7 +113,13 @@ bash build/build_qagame.sh
 # 产物： code/game/vm/qagame.qvm
 ```
 
-重新打包 pk3：
+重新打包装成独立 mod 包：
+
+```bash
+bash tools/pack_mod.sh                 # -> release/zzqai.pk3 + release/zzqai-<版本>-standalone.zip
+```
+
+或打回覆盖式的 pk3：
 
 ```bash
 bash tools/pack_release.sh release/brainworks.pk3 release/brainworks-new.pk3 Z:/path/to/zzqbot-assets
@@ -94,7 +127,7 @@ bash tools/pack_release.sh release/brainworks.pk3 release/brainworks-new.pk3 Z:/
 
 cgame（伤害数字）见 [`cgame/README.md`](cgame/README.md)。
 
-### 三、验证
+### 四、验证
 
 ```bash
 # 打开诊断，跑一局 bot vs bot
@@ -249,10 +282,12 @@ cgame/              伤害数字功能的 overlay 文件与说明
 botfiles/bots/      zzqBOT 角色定义（引擎扫 botfiles/ 找角色文件）
 scripts/zzqbot.bot  zzqBOT 索引条目（引擎扫 scripts/*.bot 发现机器人）
 config/             zzqbot.cfg 与 M1–M6 验证/对照配置
-release/            已编译好的 qagame.qvm / cgame.qvm 与组装好的 brainworks.pk3
+packaging/          独立包里的松散文件：description.txt（MODS 菜单说明）、README.txt（中文说明）
+release/            已编译好的 qagame.qvm / cgame.qvm、zzqai.pk3 与 zzqai-<版本>-standalone.zip
 docs/               设计文档、实现说明、验证记录
 upstream/           上游原版 pk3 与许可证，便于对比与回退
-tools/pack_release.sh  把产物重新打进 pk3
+tools/pack_mod.sh      组装独立 mod 包（推荐路径）
+tools/pack_release.sh  把产物重新打进覆盖式 brainworks.pk3（旧流程）
 ```
 
 ---

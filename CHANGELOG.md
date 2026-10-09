@@ -1,6 +1,72 @@
 # 变更记录
 
-## [1.0.0] — 2026-10-09
+## [1.2.0] — 2026-10-09
+
+**独立发行版**：不再依附于已安装的 brainworks 目录，而是一个自带 gamedir 的
+"解压即用"模组包 —— 放进游戏根目录，在 MODS 菜单里选中即可开玩，**不需要**任何
+启动参数或控制台命令。
+
+### 新增 — 独立 mod 包（`packaging/` + `tools/pack_mod.sh`）
+
+- 新增 `tools/pack_mod.sh`：一步产出
+  - `release/zzqai.pk3` —— mod 本体（`vm/` + `botfiles/` + `scripts/` + `models/` + `sound/`，51 个条目）
+  - `release/zzqai-<版本>-standalone.zip` —— 完整独立包，解压出来就是 `<Quake3>/zzqai/`
+- 新增 `packaging/description.txt`：MODS 菜单里显示的模组说明（纯 ASCII，带 Q3 颜色码）。
+- 新增 `packaging/README.txt`：中文安装/操作说明，进包内作为 `zzqai/README.txt`。
+- 装好后 `<Quake3>/zzqai/` 只含三个文件：`zzqai.pk3`、`description.txt`、`README.txt`。
+  卸载 = 删掉这个文件夹，游戏本体零改动。
+
+### 变更 — 服务器 gamename 改为 `zzqai`
+
+- `code/game/g_local.h` 的 `GAMEVERSION` 由 `"brainworks"` 改为 `"zzqai"`。
+  这是服务器广播的 `gamename`，独立取值可避免与已安装的 brainworks 互相串线。
+- **副作用**：本模组不再能与原版 brainworks 服务器互通（同一份 QVM 的本地服务器不受影响）。
+
+### 变更 — 机器人由玩家自己在菜单里添加
+
+- `bot_minplayers` 默认值保持 `0`（不自动补人）。加机器人走游戏内
+  **ESC → ADD BOTS** 菜单：菜单自带 **BOT SKILL** 五档难度
+  （I Can Win / Bring It On / Hurt Me Plenty / Hardcore / Nightmare，对应 skill 1–5），
+  勾选机器人后 FIGHT，底层就是 `addbot "<名字>" <skill>`，与 `Svcmd_AddBot_f`
+  的参数解析完全兼容。
+- 想要自动补人仍可 `set bot_minplayers N`。
+
+### 说明
+
+- `tools/pack_release.sh`（覆盖式打进 brainworks.pk3 的旧流程）保留，供仍在使用
+  覆盖安装的用户回退，但不再是默认推荐路径。
+
+### 验证
+
+- 解压到 `D:/Quake 3 Arena-vulkan/` 后，`+set fs_game zzqai` 直接开图：
+  QVM 正常加载、botlib 初始化、103 bots parsed、180 arenas parsed、0 报错。
+- 不加任何 bot 相关参数时，全场只有玩家自己 —— 确认自动补人已彻底关闭。
+- 手动 `addbot <名字> <难度>` 加机器人正常进场，难度参数生效。
+
+## [1.1.0] — 2026-10-09
+
+在 1.0.0 的四个模块之上，补齐 M5、M6，并把整个项目推进到"可发布"状态
+（源码 / 构建脚本 / 发布产物 / 文档 / 验证证据齐备）。
+
+### 新增 — M5 连续自适应难度（`ai_adaptive.c` / `ai_adaptive.h`）
+
+- 原版 skill 是 1~5 的整数、开局定死、全队共用。本模块给**每个机器人单独**算一个
+  skill 偏移（默认 ±1.5），按"自己得分 vs 同场其他玩家平均得分"连续调整：
+  落后则抬高、领先则压低；每 `bot_adaptive_interval` 秒评估一次，
+  每次最多移动 `bot_adaptive_rate`。
+- **零侵入**：不改任何读取 `bs->settings.skill` 的代码，而是每帧把
+  `原始 skill + 偏移` 写回该字段，于是感知半径（`ai_aware.c`）、反应阈值
+  （`ai_scan.c`）、瞄准精度（`ai_self.c`）、物品预测深度（`ai_pickup.c`）等
+  自动跟随难度变化。
+- 写回前做自愈检测：`settings.skill` 与上一帧写入值对不上（例如换了机器人）时
+  重建基准。
+- 挂载点：`ai_main.c`（`BotAdaptiveUpdate` + 每帧 `BotAdaptiveApply` + 报告触发）。
+- cvar：`bot_adaptive`（默认 1）、`bot_adaptive_rate`(0.30)、`bot_adaptive_range`(1.5)、
+  `bot_adaptive_min`(1.0)、`bot_adaptive_max`(5.0)、`bot_adaptive_interval`(6.0)、
+  `bot_adaptive_debug`(0)、`bot_adaptive_report`(0)。
+
+### 新增 — M6 团队情报共享 + 角色化响应（`ai_share.c` / `ai_share.h`）
+
 
 首个可运行版本。基于 brainworks 1.0.1，新增四个决策层模块 + 两个附带交付物。
 

@@ -1,0 +1,4 @@
+^1zzqAI^7 v1.2.0 - bot AI overhaul (Brainworks based)
+^7M1 enemy profiling   M2 item clock   M3 low-HP retreat
+^7M4 combat dodge      M5 adaptive skill   M6 team intel share
+^7Pick this mod, start a map, then add bots from the in-game menu.
