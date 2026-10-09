@@ -1,0 +1,348 @@
+logfile opened on Fri Oct 09 20:14:46 2026
+execing default.cfg
+execing q3config.cfg
+com_zoneMegs will be changed upon restarting.
+couldn't exec autoexec.cfg
+fs_game is write protected.
+Hunk_Clear: reset the hunk ok
+...detecting CPU, found Intel(R) Core(TM) i7-6600U CPU @ 2.60GHz
+----- Client Initialization -----
+----- Client Initialization Complete -----
+----- Initializing Renderer ----
+-------------------------------
+----- R_Init -----
+Initializing Vulkan subsystem
+...initializing QVK
+...loading 'C:\Windows\SYSTEM32\vulkan-1.dll' : success
+...current monitor: 1920x1080@0,0 \\.\DISPLAY1
+...setting mode 3: 640 480 W
+...created window@3,22 (646x515)
+.......................
+Available physical devices:
+ 0: Integrated Intel(R) HD Graphics 520, 0x1916
+.......................
+...selected physical device: 0
+...device memory size: 8150MB
+...presentation modes: IMMEDIATE FIFO
+...selected presentation mode: IMMEDIATE, image count: 3
+
+VK_VENDOR: Intel Corporation
+VK_RENDERER: Integrated Intel(R) HD Graphics 520, 0x1916
+VK_VERSION: API: 1.3.205, Driver: 101.1660
+
+VK_MAX_TEXTURE_SIZE: 2048
+VK_MAX_TEXTURE_UNITS: 8
+
+PIXELFORMAT: color(32-bits) Z(24-bit) stencil(0-bits)
+ presentation: VK_FORMAT_B8G8R8A8_UNORM
+ capture: VK_FORMAT_R8G8B8A8_UNORM
+ depth: VK_FORMAT_X8_D24_UNORM_PACK32
+MODE: 3, 640 x 480 windowed hz:60
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 3
+HACK: using vertex lightmap approximation
+Initializing Shaders
+----- finished R_Init -----
+------ Initializing Sound ------
+----- Sound Info -----
+    2 channels
+ 8192 samples
+   32 samplebits (float)
+    1 submission_chunk
+11025 speed
+00000000017958C0 dma buffer
+Using WASAPI subsystem
+No background file.
+----------------------
+Sound initialization successful.
+--------------------------------
+Sound memory manager started
+Loading vm file vm/ui.qvm...
+Loading 594 external jump table targets
+Loading jts file vm/ui.jts...
+VM file ui compiled to 216216 bytes of code
+ui loaded in 2100608 bytes on the hunk
+180 arenas parsed
+103 bots parsed
+--- Common Initialization Complete ---
+Hostname: WIN-20220613L4W
+IP6: fe80::1fe:255d:9e64:827a%26
+IP: 172.16.23.168
+Opening IP6 socket: [::]:27960
+Opening IP socket: 0.0.0.0:27960
+Working directory: D:\Quake 3 Arena-vulkan
+------ Server Initialization ------
+Server: q3dm4
+RE_Shutdown( 0 )
+Hunk_Clear: reset the hunk ok
+...loaded in 2 milliseconds
+----------------------
+13921 files in 23 pk3 files
+Loading vm file vm/qagame.qvm...
+VM file qagame compiled to 589704 bytes of code
+qagame loaded in 4195328 bytes on the hunk
+------- Game Initialization -------
+gamename: brainworks
+gamedate: Oct 09 2026
+info_thirdplace doesn't have a spawn function
+info_firstplace doesn't have a spawn function
+info_secondplace doesn't have a spawn function
+0 teams with 0 entities
+13 items registered
+-----------------------------------
+------- BotLib Initialization -------
+loaded weapons.c
+loaded items.c
+loaded syn.c
+loaded rnd.c
+loaded match.c
+loaded rchat.c
+------------ Map Loading ------------
+trying to load maps/q3dm4.aas
+loaded maps/q3dm4.aas
+found 20 level items
+-------------------------------------
+AAS initialized.
+103 bots parsed
+180 arenas parsed
+Detected and set up 0 obstacles and 1 activators: Path activators will not be used
+-----------------------------------
+execing m3test.cfg
+loaded skill 4 from bots/default_c.c
+loaded skill 4 from bots/zzqbot_c.c
+loaded zzqbot from bots/zzqbot_t.c
+Successfully loaded Brainworks Bot
+loaded cached skill 4.000000 from bots/default_c.c
+loaded cached skill 4.000000 from bots/zzqbot_c.c
+Successfully loaded Brainworks Bot
+loaded cached skill 4.000000 from bots/default_c.c
+loaded cached skill 4.000000 from bots/zzqbot_c.c
+Successfully loaded Brainworks Bot
+RE_Shutdown( 0 )
+----- R_Init -----
+GAMMA: hardware w/ 0 overbright bits
+texturemode: GL_LINEAR_MIPMAP_NEAREST
+texture bits: 32
+picmip: 3
+HACK: using vertex lightmap approximation
+Initializing Shaders
+----- finished R_Init -----
+Loading vm file vm/ui.qvm...
+Loading 594 external jump table targets
+Loading jts file vm/ui.jts...
+VM file ui compiled to 216216 bytes of code
+ui loaded in 2100608 bytes on the hunk
+180 arenas parsed
+103 bots parsed
+Loading vm file vm/cgame.qvm...
+VM file cgame compiled to 339496 bytes of code
+cgame loaded in 4195328 bytes on the hunk
+Font 'gfx/2d/bigchars.cfg' loaded with 250 chars and 3 images
+Font 'gfx/2d/numbers.cfg' loaded with 11 chars and 2 images
+stitched 0 LoD cracks
+...loaded 1933 faces, 375 meshes, 63 trisurfs, 115 flares
+...found 2281 VBO surfaces (15064 vertexes, 32562 indexes)
+CL_InitCGame:  2.72 seconds
+Com_TouchMemory: 0 msec
+Detected 20 items grouped into 15 static clusters and 0 mobile clusters.
+Divided the level into 15 regions.
+Zhzhq^7 entered the game
+zzqAI M3: AI-One 态势 未交战 -> 对枪 (优势比 0.99, 自身 124, 敌方 125)
+zzqAI M3: AI-Two 态势 未交战 -> 对枪 (优势比 0.99, 自身 124, 敌方 125)
+zzqAI M3: AI-Three 态势 未交战 -> 对枪 (优势比 0.99, 自身 124, 敌方 125)
+zzqAI M3: AI-One 态势 对枪 -> 脱离 (优势比 0.69, 自身 87, 敌方 125)
+zzqAI M3: AI-Three 态势 对枪 -> 脱离 (优势比 0.63, 自身 80, 敌方 125)
+zzqAI M3: AI-One 态势 脱离 -> 对枪 (优势比 1.08, 自身 87, 敌方 80)
+zzqAI M3: AI-Three 态势 脱离 -> 对枪 (优势比 0.80, 自身 80, 敌方 100)
+zzqAI M3: AI-One 态势 对枪 -> 脱离 (优势比 0.77, 自身 51, 敌方 66)
+zzqAI M3: AI-Three 态势 对枪 -> 压上 (优势比 1.50, 自身 66, 敌方 44)
+zzqAI M3: AI-One 态势 脱离 -> 压上 (优势比 0.20, 自身 9, 敌方 45)
+zzqAI M3: AI-Three 态势 压上 -> 脱离 (优势比 0.30, 自身 38, 敌方 125)
+^1AI^7-^4One^7 was machinegunned by AI-Three^7
+zzqAI M3: AI-Two 态势 对枪 -> 压上 (优势比 3.05, 自身 116, 敌方 38)
+zzqAI M3: AI-One 态势 压上 -> 对枪 (优势比 1.00, 自身 125, 敌方 125)
+zzqAI M3: AI-Two 态势 压上 -> 对枪 (优势比 1.00, 自身 116, 敌方 116)
+zzqAI M3: AI-Two 态势 对枪 -> 压上 (优势比 2.84, 自身 108, 敌方 38)
+zzqAI M3: AI-One 态势 对枪 -> 压上 (优势比 3.26, 自身 124, 敌方 38)
+zzqAI M3: AI-Three 态势 脱离 -> 压上 (优势比 0.68, 自身 31, 敌方 45)
+zzqAI M3: AI-Two 态势 压上 -> 脱离 (优势比 0.02, 自身 3, 敌方 122)
+^1AI^7-^4Three^7 was gunned down by AI-Two^7
+zzqAI M3: AI-One 态势 压上 -> 对枪 (优势比 0.97, 自身 122, 敌方 125)
+^1AI^7-^4Two^7 was machinegunned by AI-One^7
+zzqAI M3: AI-Three 态势 压上 -> 对枪 (优势比 1.00, 自身 125, 敌方 125)
+zzqAI M3: AI-Two 态势 脱离 -> 对枪 (优势比 1.00, 自身 125, 敌方 125)
+zzqAI M3: AI-Two 态势 未交战 -> 对枪 (优势比 1.04, 自身 125, 敌方 120)
+zzqAI M3: AI-Two 态势 未交战 -> 对枪 (优势比 0.99, 自身 124, 敌方 125)
+zzqAI M3: AI-Three 态势 对枪 -> 脱离 (优势比 0.74, 自身 89, 敌方 119)
+zzqAI M3: AI-One 态势 对枪 -> 压上 (优势比 1.45, 自身 119, 敌方 82)
+zzqAI M3: AI-One 态势 压上 -> 脱离 (优势比 0.66, 自身 83, 敌方 125)
+zzqAI M3: AI-One 态势 脱离 -> 对枪 (优势比 0.96, 自身 83, 敌方 86)
+zzqAI M3: AI-One 态势 对枪 -> 压上 (优势比 2.76, 自身 83, 敌方 30)
+zzqAI M3: AI-One 态势 压上 -> 脱离 (优势比 0.44, 自身 55, 敌方 125)
+^1AI^7-^4Three^7 was machinegunned by AI-One^7
+zzqAI M3: AI-Two 态势 对枪 -> 压上 (优势比 2.18, 自身 120, 敌方 55)
+zzqAI M3: AI-Two 态势 压上 -> 对枪 (优势比 0.95, 自身 120, 敌方 125)
+zzqAI M3: AI-Two 态势 对枪 -> 压上 (优势比 2.18, 自身 120, 敌方 55)
+zzqAI M3: AI-Two 态势 压上 -> 对枪 (优势比 1.38, 自身 119, 敌方 86)
+zzqAI M3: AI-Three 态势 脱离 -> 对枪 (优势比 1.00, 自身 125, 敌方 125)
+zzqAI M3: AI-Two 态势 对枪 -> 压上 (优势比 2.16, 自身 119, 敌方 55)
+================ M3/M4 REPORT 1 ================
+===== zzqAI M3/M4 决斗态势报告 =====
+机器人    态势   优势比 压上   脱离   绕圈换向
+AI-One       脱离          0.52 4        4        4       
+AI-Two       压上          1.91 5        1        1       
+AI-Three     对枪          0.97 2        3        4       
+===================================
+zzqAI M3: AI-Three 态势 对枪 -> 压上 (优势比 2.54, 自身 122, 敌方 48)
+zzqAI M3: AI-One 态势 脱离 -> 压上 (优势比 0.60, 自身 25, 敌方 41)
+================ CVAR CHECK ================
+"bot_duel" is:"1^7" default:"1^7"
+"bot_duel_move" is:"1^7" default:"1^7"
+"bot_duel_debug" is:"1^7" default:"0^7"
+zzqAI M3: AI-One 态势 压上 -> 脱离 (优势比 0.04, 自身 5, 敌方 121)
+^1AI^7-^4Two^7 was machinegunned by AI-One^7
+zzqAI M3: AI-Three 态势 压上 -> 对枪 (优势比 0.95, 自身 120, 敌方 125)
+^1AI^7-^4One^7 was gunned down by AI-Three^7
+^1AI^7-^4One^7: ^2Rocket jump miscalculation.
+zzqAI M3: AI-Two 态势 压上 -> 对枪 (优势比 1.00, 自身 125, 敌方 125)
+zzqAI M3: AI-One 态势 脱离 -> 对枪 (优势比 1.00, 自身 125, 敌方 125)
+zzqAI M3: AI-One 态势 未交战 -> 对枪 (优势比 1.00, 自身 125, 敌方 124)
+zzqAI M3: AI-One 态势 未交战 -> 对枪 (优势比 0.99, 自身 124, 敌方 125)
+zzqAI M3: AI-Two 态势 对枪 -> 脱离 (优势比 0.66, 自身 73, 敌方 110)
+zzqAI M3: AI-Three 态势 对枪 -> 压上 (优势比 1.50, 自身 110, 敌方 73)
+zzqAI M3: AI-One 态势 对枪 -> 压上 (优势比 1.69, 自身 124, 敌方 73)
+zzqAI M3: AI-Three 态势 压上 -> 对枪 (优势比 1.31, 自身 96, 敌方 73)
+zzqAI M3: AI-One 态势 压上 -> 对枪 (优势比 1.39, 自身 124, 敌方 89)
+zzqAI M3: AI-Two 态势 脱离 -> 对枪 (优势比 0.82, 自身 73, 敌方 89)
+zzqAI M3: AI-One 态势 对枪 -> 压上 (优势比 1.80, 自身 123, 敌方 68)
+zzqAI M3: AI-Two 态势 对枪 -> 脱离 (优势比 0.76, 自身 52, 敌方 68)
+zzqAI M3: AI-Three 态势 对枪 -> 脱离 (优势比 0.55, 自身 68, 敌方 123)
+^1AI^7-^4Two^7 was gunned down by AI-Three^7
+^1AI^7-^4Two^7: ^2that's on me.
+zzqAI M3: AI-One 态势 压上 -> 对枪 (优势比 0.98, 自身 123, 敌方 125)
+zzqAI M3: AI-One 态势 对枪 -> 压上 (优势比 2.25, 自身 122, 敌方 54)
+zzqAI M3: AI-Two 态势 脱离 -> 对枪 (优势比 1.00, 自身 125, 敌方 125)
+zzqAI M3: AI-One 态势 压上 -> 对枪 (优势比 0.96, 自身 121, 敌方 125)
+^1AI^7-^4Three^7 was machinegunned by AI-One^7
+zzqAI M3: AI-Two 态势 对枪 -> 脱离 (优势比 0.74, 自身 89, 敌方 119)
+zzqAI M3: AI-One 态势 对枪 -> 压上 (优势比 1.45, 自身 119, 敌方 82)
+zzqAI M3: AI-Three 态势 脱离 -> 对枪 (优势比 1.00, 自身 125, 敌方 125)
+zzqAI M3: AI-One 态势 压上 -> 对枪 (优势比 1.39, 自身 105, 敌方 75)
+zzqAI M3: AI-One 态势 对枪 -> 压上 (优势比 1.54, 自身 105, 敌方 68)
+zzqAI M3: AI-Three 态势 对枪 -> 压上 (优势比 2.04, 自身 125, 敌方 61)
+zzqAI M3: AI-One 态势 压上 -> 对枪 (优势比 1.36, 自身 83, 敌方 61)
+zzqAI M3: AI-Two 态势 脱离 -> 对枪 (优势比 0.80, 自身 61, 敌方 76)
+zzqAI M3: AI-Two 态势 对枪 -> 脱离 (优势比 0.78, 自身 54, 敌方 69)
+zzqAI M3: AI-Three 态势 压上 -> 对枪 (优势比 0.99, 自身 124, 敌方 125)
+zzqAI M3: AI-One 态势 对枪 -> 脱离 (优势比 1.17, 自身 55, 敌方 47)
+zzqAI M3: AI-Two 态势 脱离 -> 压上 (优势比 0.97, 自身 40, 敌方 41)
+zzqAI M3: AI-One 态势 脱离 -> 压上 (优势比 1.02, 自身 41, 敌方 40)
+zzqAI M3: AI-Three 态势 对枪 -> 压上 (优势比 3.64, 自身 124, 敌方 34)
+zzqAI M3: AI-Two 态势 压上 -> 脱离 (优势比 0.04, 自身 5, 敌方 123)
+^1AI^7-^4One^7 was gunned down by AI-Three^7
+zzqAI M3: AI-Three 态势 压上 -> 脱离 (优势比 0.75, 自身 94, 敌方 125)
+^1AI^7-^4Two^7 was gunned down by AI-Three^7
+zzqAI M3: AI-One 态势 压上 -> 对枪 (优势比 1.00, 自身 125, 敌方 125)
+zzqAI M3: AI-Two 态势 脱离 -> 对枪 (优势比 1.00, 自身 125, 敌方 125)
+zzqAI M3: AI-Three 态势 脱离 -> 对枪 (优势比 1.11, 自身 94, 敌方 84)
+zzqAI M3: AI-One 态势 对枪 -> 脱离 (优势比 0.67, 自身 84, 敌方 125)
+zzqAI M3: AI-Three 态势 对枪 -> 脱离 (优势比 0.75, 自身 94, 敌方 125)
+zzqAI M3: AI-Two 态势 未交战 -> 对枪 (优势比 0.99, 自身 124, 敌方 125)
+zzqAI M3: AI-One 态势 脱离 -> 对枪 (优势比 0.89, 自身 84, 敌方 94)
+zzqAI M3: AI-Three 态势 脱离 -> 对枪 (优势比 1.11, 自身 94, 敌方 84)
+zzqAI M3: AI-Two 态势 对枪 -> 压上 (优势比 1.54, 自身 124, 敌方 80)
+zzqAI M3: AI-Three 态势 对枪 -> 脱离 (优势比 0.78, 自身 66, 敌方 84)
+zzqAI M3: AI-One 态势 对枪 -> 压上 (优势比 1.71, 自身 77, 敌方 45)
+zzqAI M3: AI-One 态势 压上 -> 脱离 (优势比 0.61, 自身 77, 敌方 125)
+zzqAI M3: AI-Two 态势 压上 -> 对枪 (优势比 0.97, 自身 122, 敌方 125)
+^1AI^7-^4Three^7 was machinegunned by AI-Two^7
+^1AI^7-^4Three^7: ^2Rocket jump miscalculation.
+zzqAI M3: AI-Three 态势 脱离 -> 对枪 (优势比 1.00, 自身 125, 敌方 125)
+zzqAI M3: AI-One 态势 未交战 -> 脱离 (优势比 0.64, 自身 77, 敌方 120)
+zzqAI M3: AI-Two 态势 对枪 -> 压上 (优势比 1.55, 自身 120, 敌方 77)
+zzqAI M3: AI-Three 态势 对枪 -> 压上 (优势比 1.62, 自身 125, 敌方 77)
+================ M3/M4 REPORT 2 ================
+===== zzqAI M3/M4 决斗态势报告 =====
+机器人    态势   优势比 压上   脱离   绕圈换向
+AI-One       脱离          0.64 12       9        5       
+AI-Two       压上          1.55 8        6        4       
+AI-Three     压上          1.61 7        7        4       
+===================================
+zzqAI M3: AI-Three 态势 压上 -> 对枪 (优势比 1.10, 自身 124, 敌方 112)
+zzqAI M3: AI-One 态势 未交战 -> 脱离 (优势比 0.78, 自身 77, 敌方 98)
+zzqAI M3: AI-Three 态势 对枪 -> 压上 (优势比 1.46, 自身 123, 敌方 84)
+zzqAI M3: AI-One 态势 脱离 -> 对枪 (优势比 0.91, 自身 77, 敌方 84)
+zzqAI M3: AI-One 态势 对枪 -> 脱离 (优势比 0.62, 自身 77, 敌方 123)
+zzqAI M3: AI-Two 态势 压上 -> 脱离 (优势比 0.61, 自身 77, 敌方 125)
+zzqAI M3: AI-Three 态势 压上 -> 对枪 (优势比 0.98, 自身 123, 敌方 125)
+zzqAI M3: AI-One 态势 未交战 -> 脱离 (优势比 0.62, 自身 77, 敌方 123)
+zzqAI M3: AI-Two 态势 脱离 -> 压上 (优势比 1.00, 自身 77, 敌方 77)
+zzqAI M3: AI-Three 态势 对枪 -> 压上 (优势比 1.58, 自身 122, 敌方 77)
+zzqAI M3: AI-One 态势 未交战 -> 对枪 (优势比 1.00, 自身 77, 敌方 77)
+zzqAI M3: AI-Three 态势 压上 -> 对枪 (优势比 0.97, 自身 122, 敌方 125)
+^1AI^7-^4Two^7 was gunned down by AI-One^7
+zzqAI M3: AI-One 态势 未交战 -> 脱离 (优势比 0.63, 自身 77, 敌方 121)
+zzqAI M3: AI-Three 态势 对枪 -> 压上 (优势比 1.57, 自身 121, 敌方 77)
+zzqAI M3: AI-One 态势 脱离 -> 压上 (优势比 0.63, 自身 77, 敌方 121)
+zzqAI M3: AI-Three 态势 压上 -> 对枪 (优势比 1.34, 自身 90, 敌方 67)
+zzqAI M3: AI-Three 态势 对枪 -> 压上 (优势比 1.57, 自身 90, 敌方 57)
+zzqAI M3: AI-One 态势 压上 -> 脱离 (优势比 0.45, 自身 57, 敌方 125)
+zzqAI M3: AI-Three 态势 压上 -> 对枪 (优势比 1.05, 自身 60, 敌方 57)
+zzqAI M3: AI-Three 态势 对枪 -> 脱离 (优势比 0.47, 自身 60, 敌方 125)
+zzqAI M3: AI-Two 态势 未交战 -> 对枪 (优势比 0.99, 自身 124, 敌方 125)
+zzqAI M3: AI-Three 态势 脱离 -> 对枪 (优势比 1.05, 自身 60, 敌方 57)
+zzqAI M3: AI-One 态势 脱离 -> 压上 (优势比 0.95, 自身 57, 敌方 60)
+zzqAI M3: AI-One 态势 压上 -> 脱离 (优势比 0.45, 自身 57, 敌方 125)
+zzqAI M3: AI-One 态势 脱离 -> 压上 (优势比 0.95, 自身 57, 敌方 60)
+zzqAI M3: AI-Three 态势 对枪 -> 脱离 (优势比 0.47, 自身 60, 敌方 125)
+zzqAI M3: AI-One 态势 未交战 -> 压上 (优势比 0.95, 自身 57, 敌方 60)
+zzqAI M3: AI-Two 态势 对枪 -> 压上 (优势比 2.14, 自身 122, 敌方 57)
+zzqAI M3: AI-Three 态势 脱离 -> 对枪 (优势比 1.05, 自身 60, 敌方 57)
+zzqAI M3: AI-Three 态势 对枪 -> 脱离 (优势比 0.92, 自身 53, 敌方 57)
+^1AI^7-^4One^7 was gunned down by AI-Three^7
+^1AI^7-^4One^7: ^2Rocket jump miscalculation.
+zzqAI M3: AI-Two 态势 压上 -> 对枪 (优势比 0.95, 自身 120, 敌方 125)
+zzqAI M3: AI-Two 态势 对枪 -> 压上 (优势比 3.07, 自身 120, 敌方 39)
+zzqAI M3: AI-Three 态势 脱离 -> 压上 (优势比 0.32, 自身 39, 敌方 120)
+^1AI^7-^4Two^7: ^2Ick!
+zzqAI M3: AI-Three 态势 压上 -> 脱离 (优势比 0.31, 自身 39, 敌方 125)
+^1AI^7-^4Two^7 was gunned down by AI-Three^7
+zzqAI M3: AI-One 态势 未交战 -> 对枪 (优势比 0.99, 自身 124, 敌方 125)
+zzqAI M3: AI-Two 态势 压上 -> 对枪 (优势比 1.00, 自身 125, 敌方 125)
+zzqAI M3: AI-One 态势 对枪 -> 压上 (优势比 1.92, 自身 123, 敌方 64)
+zzqAI M3: AI-Two 态势 未交战 -> 对枪 (优势比 0.99, 自身 124, 敌方 125)
+zzqAI M3: AI-Three 态势 未交战 -> 压上 (优势比 0.52, 自身 64, 敌方 123)
+zzqAI M3: AI-One 态势 压上 -> 对枪 (优势比 0.96, 自身 121, 敌方 125)
+zzqAI M3: AI-Three 态势 压上 -> 脱离 (优势比 0.17, 自身 22, 敌方 125)
+zzqAI M3: AI-One 态势 对枪 -> 压上 (优势比 5.50, 自身 121, 敌方 22)
+zzqAI M3: AI-Three 态势 脱离 -> 压上 (优势比 0.18, 自身 22, 敌方 121)
+zzqAI M3: AI-One 态势 压上 -> 对枪 (优势比 1.39, 自身 120, 敌方 86)
+zzqAI M3: AI-Three 态势 压上 -> 脱离 (优势比 0.17, 自身 22, 敌方 125)
+zzqAI M3: AI-One 态势 对枪 -> 压上 (优势比 5.45, 自身 120, 敌方 22)
+zzqAI M3: AI-Three 态势 脱离 -> 压上 (优势比 0.18, 自身 22, 敌方 120)
+zzqAI M3: AI-Two 态势 对枪 -> 压上 (优势比 5.50, 自身 121, 敌方 22)
+^1AI^7-^4One^7 was gunned down by AI-Three^7
+================ M3/M4 REPORT 3 ================
+===== zzqAI M3/M4 决斗态势报告 =====
+机器人    态势   优势比 压上   脱离   绕圈换向
+AI-One       压上          5.40 19       15       7       
+AI-Two       压上          2.41 12       7        4       
+AI-Three     压上          0.41 15       13       6       
+===================================
+zzqAI M3: AI-One 态势 压上 -> 对枪 (优势比 1.00, 自身 125, 敌方 125)
+zzqAI M3: AI-One 态势 对枪 -> 压上 (优势比 4.31, 自身 125, 敌方 29)
+zzqAI M3: AI-Three 态势 压上 -> 脱离 (优势比 0.01, 自身 2, 敌方 125)
+^1AI^7-^4Two^7 was gunned down by AI-Three^7
+----- Server Shutdown (Server quit) -----
+==== ShutdownGame ====
+AAS shutdown.
+---------------------------
+----- Client Shutdown (Client quit) -----
+RE_Shutdown( 3 )
+Shutting down Vulkan subsystem
+...destroying window
+...shutting down QVK
+...unloading Vulkan DLL
+-----------------------

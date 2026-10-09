@@ -1,0 +1,21 @@
+# 构建产物
+code/game/vm/
+*.qvm
+*.map
+*.asm
+!code/game/g_syscalls.asm
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+*.swp
+*~
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# 本地运行目录（不要提交进仓库）
+qconsole.log
+games.log
+q3config.cfg
+*.dll

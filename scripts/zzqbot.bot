@@ -1,0 +1,13 @@
+//===========================================================================
+// zzqBOT -- Quake 3 Arena 自定义机器人（2026-10-09 设计）
+//
+// 加载方式：引擎/游戏在 G_LoadBotList 中自动读取 scripts/*.bot，
+//           本文件与 baseq3 的 scripts/bots.txt 一起被解析。
+// 使用方式：控制台输入   addbot zzqBOT 5
+//===========================================================================
+{
+name		zzqBOT
+funname		^1z^7z^4q^1B^7O^4T
+model		War/Default
+aifile		bots/zzqbot_c.c
+}

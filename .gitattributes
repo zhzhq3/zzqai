@@ -1,0 +1,13 @@
+# 默认按文本处理，仓库内存 LF，检出时按平台习惯
+* text=auto
+
+# 二进制资源，禁止任何换行/编码转换
+*.qvm   binary
+*.pk3   binary
+*.exe   binary
+*.dll   binary
+*.map   binary
+*.md3   binary
+*.wav   binary
+*.tga   binary
+*.doc   binary
