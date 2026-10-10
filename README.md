@@ -70,7 +70,7 @@ zzqAI 补上六件事（**M1–M6**）：
 **不需要任何启动参数，也不需要控制台命令。**
 
 ```
-1. 解压 release/zzqai-1.3.0-standalone.zip 到 Quake 3 安装根目录
+1. 解压 release/zzqai-1.3.2-standalone.zip 到 Quake 3 安装根目录
    （和 baseq3 文件夹同级，解压后得到 <Quake3>/zzqai/）
 2. 启动游戏 → 主菜单 MODS（模组）→ 列表里选中 zzqai
 3. MULTIPLAYER → CREATE 开图 → 进游戏后按 ESC → ADD BOTS
@@ -87,8 +87,13 @@ skill 1–5），勾选想加的机器人（含本模组的 **zzqBOT**）后按 
 <Quake3>/zzqai/
 <Quake3>/zzqai/zzqai.pk3
 <Quake3>/zzqai/description.txt
+<Quake3>/zzqai/q3key             ← 1.3.2 起，缺了会弹 CD key 输入框
 <Quake3>/zzqai/README.txt
 ```
+
+> `q3key` 是**本 gamedir 专用的 CD key 文件**，必须是松散文件（不能进 pk3）。
+> 为什么需要它见 `docs/09-CDKey提示修复.md`：本 mod 沿用 baseq3 的界面，
+> 而那个界面要求"每个模组目录各自有一份 key"。
 
 想让它自动补人（不手动加）也可以：控制台 `bot_minplayers 3`。
 
@@ -301,7 +306,7 @@ cgame/              伤害数字 + CPMA 切枪的 overlay 文件与说明
 botfiles/bots/      zzqBOT 角色定义（引擎扫 botfiles/ 找角色文件）
 scripts/zzqbot.bot  zzqBOT 索引条目（引擎扫 scripts/*.bot 发现机器人）
 config/             zzqbot.cfg 与 M1–M6 验证/对照配置
-packaging/          独立包里的松散文件：description.txt（MODS 菜单说明）、README.txt（中文说明）
+packaging/          独立包里的松散文件：description.txt（MODS 菜单说明）、README.txt（中文说明）、q3key（本 gamedir 的 CD key）
 release/            已编译好的 qagame.qvm / cgame.qvm、zzqai.pk3 与 zzqai-<版本>-standalone.zip
 docs/               设计文档、实现说明、验证记录
 upstream/           上游原版 pk3 与许可证，便于对比与回退
@@ -320,6 +325,8 @@ tools/pack_release.sh  把产物重新打进覆盖式 brainworks.pk3（旧流程
 | [`docs/03-M3-M4-实现说明.md`](docs/03-M3-M4-实现说明.md) | M3 决斗策略机 + M4 战斗走位的实现细节 |
 | [`docs/06-M5-M6-实现说明.md`](docs/06-M5-M6-实现说明.md) | M5 连续自适应难度 + M6 团队情报共享的实现细节 |
 | [`docs/07-CPMA对齐说明.md`](docs/07-CPMA对齐说明.md) | 1.3：机器人统一亮绿（CPMA 风格）+ 切枪 450→200ms 的来龙去脉 |
+| [`docs/08-机器人智力对照.md`](docs/08-机器人智力对照.md) | 所有机器人是否一样聪明、zzqBOT 是否更强（含实跑日志） |
+| [`docs/09-CDKey提示修复.md`](docs/09-CDKey提示修复.md) | 1.3.2：为什么只有本 mod 会弹 CD key 输入框，以及 `q3key` 的取证链 |
 | [`docs/04-构建与安装.md`](docs/04-构建与安装.md) | 从零构建、打包、踩坑记录 |
 | [`docs/05-验证记录.md`](docs/05-验证记录.md) | 实跑验证数据与对照组结果 |
 | [`CHANGELOG.md`](CHANGELOG.md) | 版本变更 |

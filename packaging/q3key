@@ -1,0 +1,11 @@
+2ab3cd7gahljprst
+// zzqAI : placeholder CD key for the "zzqai" gamedir.
+// Why this file exists: the ui.qvm we load (ioquake3-lineage q3_ui) answers
+// UI_HASUNIQUECDKEY = true, i.e. it wants one CD key PER GAMEDIR. With no
+// zzqai/q3key present the engine reads an empty key, VerifyCDKey fails and the
+// main menu pops the CD key prompt. This file satisfies that check.
+// CL_CDKeyValidate(key, NULL) only checks length 16 + characters in
+// 237abcdghjlprstw - there is no online validation involved.
+// MUST stay a loose file (<Quake3>/zzqai/q3key); packing it into a pk3 does
+// nothing, the engine opens it with the OS file API, not the pk3 reader.
+// Safe to delete (the prompt will simply come back).

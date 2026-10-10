@@ -4,7 +4,7 @@
 
 | 文件 | 说明 |
 |---|---|
-| `zzqai-1.3.1-standalone.zip` | **推荐**。独立 mod 包，解压到 Quake 3 根目录即可，游戏内 MODS 菜单选中即玩 |
+| `zzqai-1.3.2-standalone.zip` | **推荐**。独立 mod 包，解压到 Quake 3 根目录即可，游戏内 MODS 菜单选中即玩 |
 | `zzqai.pk3` | 上面那个包里的 mod 本体（想单独取用） |
 | `brainworks.pk3` | 覆盖式安装用的整包（丢进已有的 `brainworks/` 目录覆盖），旧流程保留 |
 | `qagame.qvm` | 单独编译出的游戏逻辑 VM，供想自己打进 pk3 的人使用 |
@@ -13,12 +13,24 @@
 ## 快速安装（推荐）
 
 ```
-1. 解压 zzqai-1.3.1-standalone.zip 到 <Quake3>/（和 baseq3 同级）
+1. 解压 zzqai-1.3.2-standalone.zip 到 <Quake3>/（和 baseq3 同级）
 2. 启动 → MODS 菜单 → 选中 zzqai
 3. MULTIPLAYER → CREATE 开图 → ESC → ADD BOTS → 选难度 → FIGHT
 ```
 
 不需要启动参数，也不需要控制台命令。
+
+独立包解出来是 4 个文件（少一个都不行）：
+
+```
+<Quake3>/zzqai/zzqai.pk3           mod 本体
+<Quake3>/zzqai/description.txt     MODS 菜单里的说明
+<Quake3>/zzqai/q3key               本 gamedir 的 CD key（1.3.2 起）
+<Quake3>/zzqai/README.txt          中文说明
+```
+
+> `q3key` **必须是松散文件，不能打进 pk3** —— 引擎用操作系统直接读盘，
+> 不查 pk3 压缩包。理由与取证见 `docs/09-CDKey提示修复.md`。
 
 ## 校验
 
@@ -37,14 +49,18 @@ cgame.qvm    361,052 字节   md5 6e7fc2f4bf53137bb463fb1920d87dc1
 6,660,203 字节   md5 2cfb938adab7a35002c1a7312ce82451
 ```
 
-独立包 `zzqai-1.3.1-standalone.zip`：
+独立包 `zzqai-1.3.2-standalone.zip`：
 
 ```
-6,614,234 字节   md5 e6e7d6feb41d1864c989fa3704507d95
+6,615,572 字节   md5 6d346543fbda3d3845d99ac3ed0cbcc8
 ```
 
 > 打包脚本 1.3.1 起把追加条目的 zip 时间戳固定死，并显式指定压缩级别 9，
 > 所以上面两个 md5 **可以复现**（同一份源码连跑两次结果一致）。
+
+> 1.3.2 只动了独立包：多了 `zzqai/q3key` 这一个 720 字节的文件，
+> **pk3 一个字节都没变**（md5 仍是 `2cfb938a…`）。
+> 修的是"选中本 mod 后主菜单会弹 CD key 输入框"。
 
 > 1.3.1 起包里自带 CPMA 亮皮资源（136 个文件，约 7.4 MB 未压缩），
 > 所以 pk3 从 3.43 MB 涨到 6.66 MB —— 换来的是**不再依赖 baseq3 里的

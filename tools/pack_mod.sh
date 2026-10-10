@@ -6,7 +6,8 @@
 #   <Quake3>/zzqai/              ← 解压出来就是这么一个目录
 #   ├── zzqai.pk3                ← mod 本体
 #   ├── description.txt          ← MODS 菜单里显示的说明
-#   └── README.txt               ← 中文安装说明
+#   ├── README.txt               ← 中文安装说明
+#   └── q3key                    ← 本 gamedir 的 CD key（否则主菜单会弹 CD key 输入框）
 #
 # 装好后启动游戏 → MODS 菜单里会多出一项 "zzqai" → 选中 → 开图即可。
 # 机器人由玩家自己在游戏内菜单里添加：ESC → ADD BOTS，菜单自带难度选择。
@@ -25,7 +26,7 @@ set -e
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 ASSETS="${1:-/z/q3zzqbot}"
-VERSION="${ZZQAI_VERSION:-1.3.1}"
+VERSION="${ZZQAI_VERSION:-1.3.2}"
 GAMEDIR="zzqai"
 
 BASE="$ROOT/upstream/brainworks-1.0.1-original.pk3"
@@ -37,6 +38,7 @@ OUT_ZIP="$ROOT/release/${GAMEDIR}-${VERSION}-standalone.zip"
 [ -f "$BASE" ]                    || { echo "缺少上游基底 $BASE"; exit 1; }
 [ -f "$ROOT/packaging/README.txt" ]      || { echo "缺少 packaging/README.txt"; exit 1; }
 [ -f "$ROOT/packaging/description.txt" ] || { echo "缺少 packaging/description.txt"; exit 1; }
+[ -f "$ROOT/packaging/q3key" ]           || { echo "缺少 packaging/q3key"; exit 1; }
 
 python - "$ROOT" "$ASSETS" "$BASE" "$OUT_PK3" "$OUT_ZIP" "$GAMEDIR" "$VERSION" <<'PY'
 import sys, os, zipfile
@@ -178,13 +180,24 @@ readme_data = open(os.path.join(root, "packaging", "README.txt"), "rb").read()
 if not readme_data.startswith(b"\xef\xbb\xbf"):
     readme_data = b"\xef\xbb\xbf" + readme_data     # 给 Windows 记事本一个 BOM
 
+# q3key：必须是松散文件，不能进 pk3（引擎用 OS 文件接口读它，不查 pk3）。
+# 内容前 16 字节就是 key，所以不要给它加 BOM，也不要改动开头。
+qkey_data = open(os.path.join(root, "packaging", "q3key"), "rb").read()
+
+# 这个 key 只在本地做长度/字符集校验，务必保证前 16 字节合法，
+# 否则等于没修：长度必须是 16，字符必须落在 237abcdghjlprstw 里。
+_key = qkey_data[:16]
+if len(_key) != 16 or any(chr(c).lower() not in "237abcdghjlprstw" for c in _key):
+    sys.exit("packaging/q3key 前 16 字节不是合法 CD key: %r" % _key)
+
 STAMP = (2026, 10, 10, 0, 0, 0)                     # 同上，保证 zip 也可复现
 with zipfile.ZipFile(out_zip, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
     for inner, data in (("%s/%s.pk3" % (gamedir, gamedir),
                          open(out_pk3, "rb").read()),
                         ("%s/description.txt" % gamedir,
                          open(os.path.join(root, "packaging", "description.txt"), "rb").read()),
-                        ("%s/README.txt" % gamedir, readme_data)):
+                        ("%s/README.txt" % gamedir, readme_data),
+                        ("%s/q3key" % gamedir, qkey_data)):
         zi = zipfile.ZipInfo(inner, date_time=STAMP)
         zi.compress_type = zipfile.ZIP_DEFLATED
         zi._compresslevel = 9
@@ -192,7 +205,7 @@ with zipfile.ZipFile(out_zip, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
         z.writestr(zi, data)
 
 print("独立包       :", out_zip, os.path.getsize(out_zip), "bytes")
-print("包内结构     : %s/{ %s.pk3, description.txt, README.txt }" % (gamedir, gamedir))
+print("包内结构     : %s/{ %s.pk3, description.txt, README.txt, q3key }" % (gamedir, gamedir))
 PY
 
 echo

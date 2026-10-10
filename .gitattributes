@@ -16,3 +16,6 @@
 # （Q3 两种换行都能吃，但固定住才能保证"同一份源码 → 同一个 pk3"）
 *.shader binary
 *.skin   binary
+
+# CD key 文件更严格：前 16 字节就是 key，任何换行/编码转换都不能碰
+q3key    binary

@@ -1,5 +1,67 @@
 # 变更记录
 
+## [1.3.2] — 2026-10-10
+
+**修掉"选中本 mod 就会弹 CD key 输入框"**：独立包里补一个松散文件
+`zzqai/q3key`。`zzqai.pk3` 一个字节都没动。
+
+### 根因（完整取证见 `docs/09-CDKey提示修复.md`）
+
+- 主菜单前的弹框来自界面的 `UI_MainMenu()`：只要
+  `trap_VerifyCDKey(trap_GetCDKey())` 失败就弹（`ui_menu.c:276`）。
+- 本 mod 沿用 baseq3 的界面，而那是 ioquake3 系的 `q3_ui`，
+  它对 `UI_HASUNIQUECDKEY` 返回 **qtrue**（`q3_ui/ui_main.c:81`，
+  源码注释原文：*"change this to qfalse for mods!"*）
+  ⇒ **每个 gamedir 各自要一份 CD key**。
+- 于是界面取的是 `cl_cdkey[16..31]`，而这一段的唯一来源是
+  `Com_AppendCDKey(fs_game)` 读 `<gamedir>/q3key`（`files.c:3433`）。
+- `zzqai/q3key` 不存在 ⇒ 取到空串 ⇒ 长度 0 ⇒ 校验失败 ⇒ 弹框。
+  换回 baseq3 时 `fs_game` 为空，取的是 `cl_cdkey[0..15]`（`baseq3/q3key`，
+  正常装过游戏就有），所以不弹。
+- 别的 mod 不弹，是因为它们大多自带 `vm/ui.qvm`，而自带界面的一般把
+  `UI_HASUNIQUECDKEY` 编译成 qfalse，根本不走这条路。
+
+### 修复
+
+- 新增 `packaging/q3key`：前 16 字节 `2ab3cd7gahljprst`（CRLF、无 BOM），
+  后接说明注释。合法依据是 `CL_CDKeyValidate(key, NULL)` 在 checksum 为
+  NULL 时**只检查长度 16 + 字符落在 `237abcdghjlprstw` 内**（`cl_main.c:4704`）。
+- `tools/pack_mod.sh`：
+  - 独立包内增加 `zzqai/q3key`；
+  - 打包时**强校验**前 16 字节合法，否则直接报错退出（避免又把"没修好的包"发出去）；
+  - 默认版本号 1.3.1 → 1.3.2。
+- **必须是松散文件，不能打进 pk3**：引擎读它走 `FS_BaseDir_FOpenFileRead`
+  → `Sys_FOpen`，不查 pk3。打包脚本因此把它写进 zip 顶层的 `zzqai/` 而不是 pk3。
+
+### 位置为何必然生效（实证）
+
+- `FS_GetModDescription()` 用**同一个函数**、**同一种形状**
+  （`"%s/description.txt"`）读 MODS 菜单说明（`files.c:2459`），
+  而它确实能从 mod 目录读到。`q3key` 的调用形状与之同构。
+- 引擎实测（专用服务器 + `+which description.txt +path`）：
+  `File "description.txt" found at "D:\Quake 3 Arena-vulkan\zzqai"`，
+  version 串 `Q3 1.32e win_mingw-x86_64` ⇒ 安装根即 `fs_basepath`，
+  而 `fs_basepath` 正是 `FS_InitPathVars()` 里的第 4 项。
+- ⚠️ `which zzqai/q3key` 会报 `File not found`，这是**预期**的 ——
+  `which` 走 `FS_FOpenFileReadDir`（search path 根），与 CD key 的函数不同，
+  不能拿它当反证。
+
+### 产物
+
+```
+release/zzqai.pk3                      6,660,203 B  md5 2cfb938adab7a35002c1a7312ce82451（与 1.3.1 相同）
+release/zzqai-1.3.2-standalone.zip     6,615,572 B  md5 6d346543fbda3d3845d99ac3ed0cbcc8
+```
+
+两个 VM 无改动。
+
+### 文档
+
+- 新增 `docs/09-CDKey提示修复.md`（触发条件 / 两段式 key 结构 / 校验算法 /
+  取证链 / 排查顺序）。
+- `packaging/README.txt`：安装树补 `q3key`，新增"六之二、它老是问我 CD key"。
+- `release/README.md` / `packaging/description.txt`：版本号与产物信息。
+
 ## [1.3.1] — 2026-10-10
 
 **亮皮资源随包自带**：把 CPMA ProMode brightskin 的蒙版、皮肤、图标和 shader
