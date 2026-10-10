@@ -11,3 +11,8 @@
 *.wav   binary
 *.tga   binary
 *.doc   binary
+
+# 亮皮/皮肤与 shader 要按字节原样存 —— 打包进 pk3 的 md5 依赖它们
+# （Q3 两种换行都能吃，但固定住才能保证"同一份源码 → 同一个 pk3"）
+*.shader binary
+*.skin   binary

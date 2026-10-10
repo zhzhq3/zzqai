@@ -171,9 +171,14 @@ set cg_enemyColors ""
 结论：`bot_greenbots` 这个 cvar 已从 `g_bot.c` 移除，该文件回到 1.2.0 原状。
 外观完全交给客户端的 `cg_enemyModel` / `cg_enemyColors`。
 
-> **依赖说明**：`/pm` 皮肤与 `color.tga` 由 baseq3 里的 **better-gibs mod pak
-> （`pak8a.pk3`）** 提供。本模组的 cgame 源码就是取自那个 mod，两者是一套。
-> 若 baseq3 里没有这些资源，机器人会退回各自的默认皮肤（不会变绿，但游戏一切正常）。
+> **资源自带说明（1.3.1 起）**：`/pm` 皮肤、`color.tga` 蒙版、`icon_pm.tga` 与
+> 44 个 `pm*` shader 现在**全部随 `zzqai.pk3` 自带**（源目录 `assets/brightskin/`，
+> 136 个文件），由 `tools/extract_brightskin.py` 从 `pak8a.pk3` 原样抽出。
+> 因此在**只有 `pak0.pk3` 的干净安装**上也能开亮皮，**不再依赖 `pak8a.pk3`**。
+>
+> 自带的 shader 文件叫 `scripts/zzqai_brightskin.shader`，**故意不叫
+> `scripts/players.shader`** —— 否则会整份盖掉别人（含 pak8a）的同名文件。
+> 同名 shader 定义内容与 pak8a 逐字一致，所以两者共存时谁先解析都不影响结果。
 
 ---
 

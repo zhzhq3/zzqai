@@ -1,5 +1,51 @@
 # 变更记录
 
+## [1.3.1] — 2026-10-10
+
+**亮皮资源随包自带**：把 CPMA ProMode brightskin 的蒙版、皮肤、图标和 shader
+全部打进 `zzqai.pk3`，本模组从此**不依赖 baseq3 里的 `pak8a.pk3`**。
+
+### 新增 — 自带亮皮资源（136 个文件）
+
+- 新增 `tools/extract_brightskin.py`：从 `baseq3/pak8a.pk3` **原样抽出**
+  - `models/players/<模型>/{head,lower,upper}_pm.skin`（69）—— mesh → `pm*` shader
+  - `models/players/<模型>/color.tga`（23）+ `color_h.tga`（16）+ `color_x.tga`（4）
+    —— 亮皮蒙版（alpha=255 处走 `rgbGen entity`，被 `cg_enemyColors` 染色）
+  - `models/players/<模型>/icon_pm.tga`（23）—— 记分板头像，缺了皮肤会注册失败
+  - `scripts/zzqai_brightskin.shader`（1）—— 44 个 shader 定义，与 pak8a 逐字一致
+- 抽出的文件落在 `assets/brightskin/`（含 `README.md` 说明来源与许可）。
+- `tools/pack_mod.sh` 新增第 3b 步把该目录整份打进 pk3，并且：
+  - **故意不产出 `scripts/players.shader`** —— 那个名字会把别人的同名文件整份盖掉；
+    换成 `scripts/zzqai_brightskin.shader`，shader 是按**名字**注册的，位置无关。
+  - 亮皮条目排在素材之后，优先级最高（不会被 `q3zzqbot` 素材覆盖）。
+- 效果：干净安装（只有 `pak0.pk3`）的 Q3 上也能开亮皮；装了 `pak8a.pk3` 也不冲突
+  （同名 shader 定义内容相同，谁先解析都一样）。
+- 代价：`zzqai.pk3` 由 3,434,258 B 增至 6,664,150 B（亮皮蒙版是大头）。
+
+### 新增 — 自洽性校验脚本
+
+- `tools/check_brightskin.py`：全链路检查
+  1. 每个 `*_pm.skin` 引用的 shader 在我们自带的 shader 文件里有定义；
+  2. 每个 `*_pm.skin` 引用的贴图能解析到；
+  3. shader 里每条 `map` 的贴图能解析到；
+  4. pk3 内**不得**出现 `scripts/players.shader`。
+- 支持 `ZZQAI_SKIP_PK3=pak8a.pk3` 把源包排除后再跑 —— 用来证明"自带资源单独就够用"。
+- 实测：常规与排除 pak8a 两种情况均**全部通过**。
+
+### 打包
+
+- `tools/pack_mod.sh` 默认版本号提升到 `1.3.1`；产物
+  `release/zzqai.pk3` 与 `release/zzqai-1.3.1-standalone.zip`。
+- 两个 VM（`qagame.qvm` / `cgame.qvm`）**无改动**，仍是 1.3.0 的两个文件。
+
+### 文档
+
+- 新增 `assets/brightskin/README.md`（来源、内容清单、与 pak8a 的共存规则、许可）。
+- `docs/07-CPMA对齐说明.md`：把原来的"依赖说明"改写为"资源自带说明"。
+- `README.md` / `release/README.md`：版本号、体积、新 md5 与自带亮皮说明。
+
+---
+
 ## [1.3.0] — 2026-10-10
 
 **CPMA 对齐**：按 Challenge ProMode Arena 的做法统一机器人外观，并把切枪速度改到

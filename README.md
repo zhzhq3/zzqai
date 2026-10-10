@@ -174,6 +174,11 @@ quake3e.x64.exe +set fs_game brainworks +set logfile 1 +devmap q3dm4 +exec m3tes
 > 把它染成纯绿。本模组直接把这两个默认值设成上面这样，所以**开箱即绿、无需命令**；
 > 想恢复原版外观，`set cg_enemyModel ""; set cg_enemyColors ""` 即可。
 >
+> **亮皮资源从 1.3.1 起随包自带**（`assets/brightskin/`，136 个文件：蒙版 +
+> `*_pm.skin` + `icon_pm.tga` + 自有 shader），所以**不依赖 baseq3 里的
+> `pak8a.pk3`**，干净安装的 Q3 上照样生效。细节见
+> `assets/brightskin/README.md` 与 `docs/07-CPMA对齐说明.md`。
+>
 > 切枪速度属于引擎物理层改动、**没有 cvar 开关**，想改回去要重编
 > （`bg_pmove.c` 的 `PM_BeginWeaponChange` 里去掉出生武器判断即回到原版 450 ms）。
 

@@ -25,7 +25,7 @@ set -e
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 ASSETS="${1:-/z/q3zzqbot}"
-VERSION="${ZZQAI_VERSION:-1.3.0}"
+VERSION="${ZZQAI_VERSION:-1.3.1}"
 GAMEDIR="zzqai"
 
 BASE="$ROOT/upstream/brainworks-1.0.1-original.pk3"
@@ -105,6 +105,24 @@ if n_assets == 0:
 if n_assets == 0:
     sys.exit("找不到 models/ 与 sound/ 素材（试过 %s 及 release/*.pk3）" % assets)
 
+# ---- 3b. 亮皮资源（CPMA ProMode brightskin）----
+#   由 tools/extract_brightskin.py 从 pak8a.pk3 抽出，随包自带，
+#   使本 mod 在干净安装的 Q3 上也能有亮皮，不再依赖任何外部 HD 包。
+#   放在素材之后，保证这里的内容优先级最高。
+BS = os.path.join(root, "assets", "brightskin")
+n_bright = 0
+if os.path.isdir(BS):
+    for dirpath, _, files in os.walk(BS):
+        for fn in files:
+            if fn.lower().endswith(".md"):
+                continue                      # 说明文件不进 pk3
+            full = os.path.join(dirpath, fn)
+            rel  = os.path.relpath(full, BS).replace("\\", "/")
+            disk(full, rel)
+            n_bright += 1
+else:
+    print("警告：未找到亮皮资源 %s（跑 tools/extract_brightskin.py 生成）" % BS)
+
 def payload(src):
     if src[0] == "@disk":
         return open(src[1], "rb").read()
@@ -116,6 +134,7 @@ def payload(src):
 
 print("qagame.qvm   :", os.path.getsize(os.path.join(root, "release", "qagame.qvm")), "bytes")
 print("素材条目     :", n_assets)
+print("亮皮条目     :", n_bright)
 print("overlay 合计 :", len(overlay))
 
 # ---- 4. 写 pk3：以上游 pk3 为骨架，逐条覆盖，再追加新条目 ----
@@ -131,6 +150,7 @@ with zipfile.ZipFile(out_pk3, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as zou
             canon, src = overlay[key]
             zi = zipfile.ZipInfo(name, date_time=info.date_time)
             zi.compress_type = zipfile.ZIP_DEFLATED
+            zi._compresslevel = 9          # writestr 传 ZipInfo 时不会继承 ZipFile 的等级
             zi.external_attr = info.external_attr
             zout.writestr(zi, payload(src))
             written.add(key)
@@ -142,7 +162,12 @@ with zipfile.ZipFile(out_pk3, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as zou
         canon, src = overlay[key]
         if key in written:
             continue
-        zout.writestr(canon, payload(src))
+        # 固定时间戳 —— 否则每次打包 pk3 的 md5 都不同，产物不可复现、没法比对
+        zi = zipfile.ZipInfo(canon, date_time=(2026, 10, 10, 0, 0, 0))
+        zi.compress_type = zipfile.ZIP_DEFLATED
+        zi._compresslevel = 9
+        zi.external_attr = 0o644 << 16
+        zout.writestr(zi, payload(src))
         written.add(key)
 
 print("pk3 条目     :", len(written))
@@ -153,11 +178,18 @@ readme_data = open(os.path.join(root, "packaging", "README.txt"), "rb").read()
 if not readme_data.startswith(b"\xef\xbb\xbf"):
     readme_data = b"\xef\xbb\xbf" + readme_data     # 给 Windows 记事本一个 BOM
 
+STAMP = (2026, 10, 10, 0, 0, 0)                     # 同上，保证 zip 也可复现
 with zipfile.ZipFile(out_zip, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
-    z.write(out_pk3, "%s/%s.pk3" % (gamedir, gamedir))
-    z.writestr("%s/description.txt" % gamedir,
-               open(os.path.join(root, "packaging", "description.txt"), "rb").read())
-    z.writestr("%s/README.txt" % gamedir, readme_data)
+    for inner, data in (("%s/%s.pk3" % (gamedir, gamedir),
+                         open(out_pk3, "rb").read()),
+                        ("%s/description.txt" % gamedir,
+                         open(os.path.join(root, "packaging", "description.txt"), "rb").read()),
+                        ("%s/README.txt" % gamedir, readme_data)):
+        zi = zipfile.ZipInfo(inner, date_time=STAMP)
+        zi.compress_type = zipfile.ZIP_DEFLATED
+        zi._compresslevel = 9
+        zi.external_attr = 0o644 << 16
+        z.writestr(zi, data)
 
 print("独立包       :", out_zip, os.path.getsize(out_zip), "bytes")
 print("包内结构     : %s/{ %s.pk3, description.txt, README.txt }" % (gamedir, gamedir))

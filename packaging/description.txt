@@ -1,4 +1,4 @@
-^1zzqAI^7 v1.3.0 - bot AI overhaul for Quake 3
+^1zzqAI^7 v1.3.1 - bot AI overhaul for Quake 3
 ^7M1 opponent profiling  M2 item clock  M3 low-HP retreat
 ^7M4 combat dodging  M5 adaptive skill  M6 team intel share
 ^7^2CPMA style:^7 all bots bright green + fast weapon switch
