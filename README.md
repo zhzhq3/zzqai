@@ -1,6 +1,6 @@
 # zzqAI — 给 Quake 3 机器人补上"该不该打"的那一层
 
-> 基于 **[brainworks](https://www.quake3world.com/)**（Ted Vessenes, 2002–2007）的 Quake 3 机器人 AI 增强模组。
+> **zzqAI 是在 [brainworks](https://www.quake3world.com/)（Ted Vessenes, 2002–2007）基础上修改而来的 Quake 3 BOT 模组，并非从零重写。**
 > brainworks 已经是公开可得的 Q3 机器人 AI 里最完整的一个；本项目**不重写它**，
 > 只在它空白的"决斗决策层"上补四个模块。
 
