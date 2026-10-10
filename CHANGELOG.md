@@ -1,5 +1,69 @@
 # 变更记录
 
+## [1.3.0] — 2026-10-10
+
+**CPMA 对齐**：按 Challenge ProMode Arena 的做法统一机器人外观，并把切枪速度改到
+CPMA 的水准。两项都是"看得见、摸得着"的改动，与 AI 逻辑无关。
+
+### 新增 — 所有机器人显示为明亮的绿色（CPMA 风格）
+
+- **不改服务端**，走 CPMA 的原生机制：把 cgame 的两个默认值设为
+  `cg_enemyModel = "pm"`（`cgame/cg_cvar.h`）与 `cg_enemyColors = "2222"`。
+  `cg_players.c` 的 `PM_SKIN`("pm") 分支会把每个机器人**保留自己的模型、
+  皮肤强制成 ProMode brightskin**，再用 `cg_enemyColors` 染色。
+- 零配置：这两项是 `CVAR_ARCHIVE`，老 `q3config.cfg` 里可能存着空串把默认值
+  盖掉，所以在 `CG_RegisterCvars()` 末尾补了一次 `trap_Cvar_Set`；
+  玩家若自己设过非空值则完全尊重，不覆盖。
+- 同时在 `CG_RegisterCvars()` 末尾打印一行版本横幅
+  （`zzqAI cgame 1.3 loaded | enemyModel=... enemyColors=...`），
+  用来确认跑的确实是本模组的 cgame 而不是 baseq3 里的那一份。
+- 依据：CPMA 用 `cg_enemyModel` + `cg_enemyColors` 把敌人（含机器人）统一成
+  绿色；玩家描述为 *"all of the enemy bots are always colored green"*，
+  **而这两个 cvar 是客户端设置** —— 服务端给机器人写 `color1/color2` 是没用的，
+  因为 Q3 玩家配色是贴图染色，`Default.tga` 那种近黑蒙版乘上绿色仍然是暗的。
+- Q3 配色码是 3 位掩码（1=红 2=绿 4=蓝 3=黄 5=品红 6=青 7=白），`2` 即纯绿。
+- 恢复原版外观：`set cg_enemyModel ""; set cg_enemyColors ""`。
+
+### 变更 — 切枪速度对齐 CPMA（450 ms → 瞬时）
+
+- `code/game/bg_pmove.c` 的 `PM_BeginWeaponChange()`：把恒定的 `weaponTime += 200`
+  改成**只有从出生武器（`WP_GAUNTLET` / `WP_MACHINEGUN`）切出时才 +200**；
+  `PM_FinishWeaponChange()` 的举枪延迟 `+250` 改为 `+0`（宏 `ZZQ_WEAPON_RAISE_TIME`）。
+  于是普通切枪只花 1~2 帧，原版是 200 + 250 = **450 ms**。
+- 依据（多个独立来源一致）：CPMA *"取消了原版 450 ms 的武器切换延迟"*；
+  *"instant weapon switching… 0 ms for the first weapon picked up after spawning,
+  while imposing a minor 200 ms penalty only for transitions from starting weapons
+  like the gauntlet or machinegun"*。
+- `bg_pmove.c` 是 game / cgame **共用**的 bg 层，因此 `qagame.qvm` 与 `cgame.qvm`
+  **两个 VM 都已同步重编** —— 只改一边会导致客户端预测与服务器不一致（切枪回弹）。
+- 人和机器人同样生效（引擎物理层行为，不是 bot 专属）。
+
+### 打包
+
+- `tools/pack_mod.sh` 默认版本号提升到 `1.3.0`。
+- 独立包现在打进去的 `cgame.qvm` 也含切枪改动（此前只含伤害数字）。
+
+### 文档
+
+- 新增 `docs/07-CPMA对齐说明.md`：写清 CPMA 亮皮的原理（`*_pm.skin` → shader →
+  `rgbGen entity` × 白蒙版 `color.tga`）、本模组的实现，以及**为什么"服务端给机器人
+  写 `color1/color2`"行不通**（那条弯路也记在案）。
+- `packaging/README.txt`：把机器人外观一节改写成客户端 `cg_enemyModel` /
+  `cg_enemyColors` 的说法，并给出回退命令。
+- `README.md` / `release/README.md` 同步新版本号、新 md5 与外观 cvar 说明。
+- 删除 1.3 开发期围绕旧方案做的临时对照 cfg（`config/cpma-test.cfg`、
+  `config/cpma-control.cfg`）。
+
+### 验证
+
+- `build/build_qagame.sh` 与 better-gibs 树的 `build_cgame.sh` 均编译通过：
+  `qagame.qvm` 605,612 B、`cgame.qvm` 361,052 B，0 error。
+- 独立包内 `vm/qagame.qvm`、`vm/cgame.qvm` 的 md5 与 `release/` 下的产物逐字节一致。
+- 启动后控制台会打印 `zzqAI cgame 1.3 loaded | enemyModel=pm enemyColors=2222`
+  —— 该横幅可用来确认外观两项已生效、且跑的是本模组的 cgame。
+- 未做：绿皮与切枪手感的录像级对照（两者都属表现层/物理手感，不涉及 AI 决策，
+  不影响 M1–M6 的验证结论）。
+
 ## [1.2.0] — 2026-10-09
 
 **独立发行版**：不再依附于已安装的 brainworks 目录，而是一个自带 gamedir 的

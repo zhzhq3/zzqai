@@ -37,10 +37,13 @@ zzqAI 补上六件事（**M1–M6**）：
 | **M5 连续自适应难度** | skill 不再固定 1~5。按每个机器人这一局的得分表现连续地抬高或压低它的有效 skill —— 打得好的被压、打得差的被抬，队伍自动趋衡 | `ai_adaptive.c/.h`（新）；挂 `ai_main.c` / `ai_vars.c` |
 | **M6 团队情报共享** | 团队模式里互相通报敌人位置；队友没看到人时会去情报点搜人。队内按进攻性自动分工（突破 / 策应 / 守点），角色决定响应半径 | `ai_share.c/.h`（新）；挂 `ai_aware.c` / `ai_maingoal.c` |
 
-另外附带两个独立交付物：
+另外附带三个独立交付物：
 
 - **zzqBOT** —— 一个 bot 模式（纯运行时角色数据，不碰 AI 逻辑）。
 - **伤害数字** —— 打中敌人时对方身上冒伤害值（CPMA 风格），由自编译的 `cgame.qvm` 提供。
+- **CPMA 外观与手感**（1.3 新增）—— 所有机器人统一成明亮的绿色、而且长得一模一样
+  （CPMA 靠 `cg_enemymodel` + `cg_enemycolors` 做的同一件事，本模组在**服务端**实现，
+  因此任何客户端看到的都一致）；切枪速度从原版 450 ms 降到 CPMA 的 200 ms。
 
 > 想只关掉 zzqAI 而保留 zzqBOT / 伤害数字：把六个模块的 cvar 设 0 即可
 > （`bot_profile` / `bot_item_wait` / `bot_duel` / `bot_duel_move` / `bot_adaptive` / `bot_share`）。
@@ -67,7 +70,7 @@ zzqAI 补上六件事（**M1–M6**）：
 **不需要任何启动参数，也不需要控制台命令。**
 
 ```
-1. 解压 release/zzqai-1.2.0-standalone.zip 到 Quake 3 安装根目录
+1. 解压 release/zzqai-1.3.0-standalone.zip 到 Quake 3 安装根目录
    （和 baseq3 文件夹同级，解压后得到 <Quake3>/zzqai/）
 2. 启动游戏 → 主菜单 MODS（模组）→ 列表里选中 zzqai
 3. MULTIPLAYER → CREATE 开图 → 进游戏后按 ESC → ADD BOTS
@@ -160,8 +163,19 @@ quake3e.x64.exe +set fs_game brainworks +set logfile 1 +devmap q3dm4 +exec m3tes
 | `bot_share_lifetime` | 8.0 | 一条情报的有效期（秒） |
 | `bot_share_range` | 2500 | 情报响应距离上限 |
 | `bot_share_debug` / `_report` | 0 | 实时情报日志 / 一次汇总 |
+| `cg_enemyModel` | `pm` | **1.3**：所有机器人用 ProMode brightskin 渲染（CPMA 的"亮皮敌人"） |
+| `cg_enemyColors` | `2222` | **1.3**：brightskin 的染色码，`2` = 纯绿 |
 
-全部为 0 时行为**完全等同 brainworks 原版**（已在对照实验中验证）。
+六个 `bot_*` 模块全为 0 时，AI 行为**完全等同 brainworks 原版**（已在对照实验中验证）。
+
+> **外观这件事在客户端（cgame），不在服务端。** CPMA 的"所有敌人一律亮绿"就是
+> `cg_enemyModel` + `cg_enemyColors` 这两个 cvar 做的：`cg_enemyModel pm` 让每个
+> 机器人保留自己的模型但换成 ProMode **brightskin** 皮肤，`cg_enemyColors 2222`
+> 把它染成纯绿。本模组直接把这两个默认值设成上面这样，所以**开箱即绿、无需命令**；
+> 想恢复原版外观，`set cg_enemyModel ""; set cg_enemyColors ""` 即可。
+>
+> 切枪速度属于引擎物理层改动、**没有 cvar 开关**，想改回去要重编
+> （`bg_pmove.c` 的 `PM_BeginWeaponChange` 里去掉出生武器判断即回到原版 450 ms）。
 
 ---
 
@@ -278,7 +292,7 @@ code/game/          完整的 brainworks 游戏源码（含 zzqAI 全部改动�
 bin/                lcc / q3asm 工具链（Windows 版，让仓库自包含）
 ui/                 game 代码 include 需要的菜单定义
 build/              编译脚本
-cgame/              伤害数字功能的 overlay 文件与说明
+cgame/              伤害数字 + CPMA 切枪的 overlay 文件与说明
 botfiles/bots/      zzqBOT 角色定义（引擎扫 botfiles/ 找角色文件）
 scripts/zzqbot.bot  zzqBOT 索引条目（引擎扫 scripts/*.bot 发现机器人）
 config/             zzqbot.cfg 与 M1–M6 验证/对照配置
@@ -300,6 +314,7 @@ tools/pack_release.sh  把产物重新打进覆盖式 brainworks.pk3（旧流程
 | [`docs/02-M1-M2-实现说明.md`](docs/02-M1-M2-实现说明.md) | M1 对手档案 + M2 物品时钟的实现细节 |
 | [`docs/03-M3-M4-实现说明.md`](docs/03-M3-M4-实现说明.md) | M3 决斗策略机 + M4 战斗走位的实现细节 |
 | [`docs/06-M5-M6-实现说明.md`](docs/06-M5-M6-实现说明.md) | M5 连续自适应难度 + M6 团队情报共享的实现细节 |
+| [`docs/07-CPMA对齐说明.md`](docs/07-CPMA对齐说明.md) | 1.3：机器人统一亮绿（CPMA 风格）+ 切枪 450→200ms 的来龙去脉 |
 | [`docs/04-构建与安装.md`](docs/04-构建与安装.md) | 从零构建、打包、踩坑记录 |
 | [`docs/05-验证记录.md`](docs/05-验证记录.md) | 实跑验证数据与对照组结果 |
 | [`CHANGELOG.md`](CHANGELOG.md) | 版本变更 |

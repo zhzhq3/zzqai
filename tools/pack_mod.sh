@@ -8,8 +8,8 @@
 #   ├── description.txt          ← MODS 菜单里显示的说明
 #   └── README.txt               ← 中文安装说明
 #
-# 装好后启动游戏 → MODS 菜单里会多出一项 "zzqai" → 选中 → 开图即可，
-# 机器人会自动补齐（QVM 内 bot_minplayers 默认 3）。
+# 装好后启动游戏 → MODS 菜单里会多出一项 "zzqai" → 选中 → 开图即可。
+# 机器人由玩家自己在游戏内菜单里添加：ESC → ADD BOTS，菜单自带难度选择。
 #
 # 用法（Windows + Git Bash）：
 #   bash tools/pack_mod.sh [War素材目录]
@@ -25,7 +25,7 @@ set -e
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 ASSETS="${1:-/z/q3zzqbot}"
-VERSION="${ZZQAI_VERSION:-1.2.0}"
+VERSION="${ZZQAI_VERSION:-1.3.0}"
 GAMEDIR="zzqai"
 
 BASE="$ROOT/upstream/brainworks-1.0.1-original.pk3"

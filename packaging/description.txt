@@ -1,4 +1,5 @@
-^1zzqAI^7 v1.2.0 - bot AI overhaul (Brainworks based)
-^7M1 enemy profiling   M2 item clock   M3 low-HP retreat
-^7M4 combat dodge      M5 adaptive skill   M6 team intel share
+^1zzqAI^7 v1.3.0 - bot AI overhaul for Quake 3
+^7M1 opponent profiling  M2 item clock  M3 low-HP retreat
+^7M4 combat dodging  M5 adaptive skill  M6 team intel share
+^7^2CPMA style:^7 all bots bright green + fast weapon switch
 ^7Pick this mod, start a map, then add bots from the in-game menu.

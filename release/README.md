@@ -4,7 +4,7 @@
 
 | 文件 | 说明 |
 |---|---|
-| `zzqai-1.2.0-standalone.zip` | **推荐**。独立 mod 包，解压到 Quake 3 根目录即可，游戏内 MODS 菜单选中即玩 |
+| `zzqai-1.3.0-standalone.zip` | **推荐**。独立 mod 包，解压到 Quake 3 根目录即可，游戏内 MODS 菜单选中即玩 |
 | `zzqai.pk3` | 上面那个包里的 mod 本体（想单独取用） |
 | `brainworks.pk3` | 覆盖式安装用的整包（丢进已有的 `brainworks/` 目录覆盖），旧流程保留 |
 | `qagame.qvm` | 单独编译出的游戏逻辑 VM，供想自己打进 pk3 的人使用 |
@@ -13,7 +13,7 @@
 ## 快速安装（推荐）
 
 ```
-1. 解压 zzqai-1.2.0-standalone.zip 到 <Quake3>/（和 baseq3 同级）
+1. 解压 zzqai-1.3.0-standalone.zip 到 <Quake3>/（和 baseq3 同级）
 2. 启动 → MODS 菜单 → 选中 zzqai
 3. MULTIPLAYER → CREATE 开图 → ESC → ADD BOTS → 选难度 → FIGHT
 ```
@@ -22,19 +22,25 @@
 
 ## 校验
 
-`qagame.qvm` 与本仓库 `code/game/` 源码的编译产物逐字节一致
-（`bash build/build_qagame.sh` 可复现），`zzqai.pk3` 内的 `vm/qagame.qvm`
-与它 md5 相同：
+`qagame.qvm` / `cgame.qvm` 与本仓库源码的编译产物逐字节一致
+（`bash build/build_qagame.sh` 与 `bash build/build_cgame.sh` 可复现），
+`zzqai.pk3` 内的两个 VM 与它们 md5 相同：
 
 ```
-大小    605,564 字节
-md5     08c396b9def1aa840e43745e2335269d
+qagame.qvm   605,612 字节   md5 12f89905b980f9b5fbb27d6a8f5bfe75
+cgame.qvm    361,052 字节   md5 6e7fc2f4bf53137bb463fb1920d87dc1
 ```
 
-独立包内 `zzqai/zzqai.pk3` 的 md5：
+独立包内 `zzqai/zzqai.pk3`：
 
 ```
-md5     77efde27e379e1418e8e9c46f13baaf0
+3,434,258 字节   md5 9b4ed059d47d0eba5add9d2688da543b
+```
+
+独立包 `zzqai-1.3.0-standalone.zip`：
+
+```
+3,421,868 字节   md5 732c259a0530eb96fb1abb06402e0f46
 ```
 
 ## `qagame.qvm` 手动放进 pk3

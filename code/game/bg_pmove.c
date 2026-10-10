@@ -1462,7 +1462,12 @@ static void PM_BeginWeaponChange( int weapon ) {
 
 	PM_AddEvent( EV_CHANGE_WEAPON );
 	pm->ps->weaponstate = WEAPON_DROPPING;
-	pm->ps->weaponTime += 200;
+	// zzqAI 1.3 / CPMA：只有从"出生武器"（手锯 WP_GAUNTLET / 机枪 WP_MACHINEGUN）
+	// 切出时才保留 200ms；其余切换不加延迟，配合 PM_FinishWeaponChange 的 0ms，
+	// 一次换枪只花 1~2 帧（原版这里是恒定 200ms + 250ms = 450ms）。
+	if ( pm->ps->weapon == WP_GAUNTLET || pm->ps->weapon == WP_MACHINEGUN ) {
+		pm->ps->weaponTime += 200;
+	}
 	PM_StartTorsoAnim( TORSO_DROP );
 }
 
@@ -1472,6 +1477,15 @@ static void PM_BeginWeaponChange( int weapon ) {
 PM_FinishWeaponChange
 ===============
 */
+
+// zzqAI 1.3: CPMA 风格武器切换 —— "举起"阶段的毫秒数。
+//   原版 250（配合 PM_BeginWeaponChange 的 200，一次切枪共 450ms）
+//   CPMA  0（于是普通切枪只要 200ms，枪几乎到手即用）
+// 依据：CPMA 官方 guide —— "The switch from a spawn weapon to another weapon
+// is 200ms. This time of switch is null for the first weapon you grab."
+// 想退回原版手感，把下面这个 0 改回 250 即可。
+#define ZZQ_WEAPON_RAISE_TIME	0
+
 static void PM_FinishWeaponChange( void ) {
 	int		weapon;
 
@@ -1486,7 +1500,7 @@ static void PM_FinishWeaponChange( void ) {
 
 	pm->ps->weapon = weapon;
 	pm->ps->weaponstate = WEAPON_RAISING;
-	pm->ps->weaponTime += 250;
+	pm->ps->weaponTime += ZZQ_WEAPON_RAISE_TIME;
 	PM_StartTorsoAnim( TORSO_RAISE );
 }
 
